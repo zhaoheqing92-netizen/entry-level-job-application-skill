@@ -11,6 +11,7 @@ Playwright MCP 与 Windows-MCP 已作为本技能的配套依赖写入元数据�
 - [Claude Code 项目 .mcp.json 示例](claude-code.example.json)：用户级优先使用 CLI，不覆盖 ~/.claude.json。
 - [DeepSeek Harness Cordis overlay](deepseek-harness.cordis.example.yaml)：合并到当前生效 patch。
 - [ZCode 原生配置示例](zcode.example.json)：使用 mcp.servers，注意原生与 .agents 来源优先级。
+- [2Captcha 官方服务示例](2captcha-config.example.json)：仅在验证码分支需要且已获授权时合并；须安全注入 `API_TOKEN`，模板不包含凭据。其他宿主按自身配置结构映射同一命令、参数和工具白名单，详见 [验证码处理](../skills/entry-level-job-application/references/captcha.md)。
 
 各宿主模板使用相同的固定版本：Playwright MCP 0.0.83、Windows-MCP 0.8.8；Windows-MCP 通过 uv 使用 Python 3.14，关闭匿名遥测并限制桌面工具。安装前核对上游元数据，不覆盖已有可用版本。
 

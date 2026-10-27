@@ -27,8 +27,9 @@
 ## 遇到需要注册账号怎么办
 
 - 先核对官网入口和已有账号，能免注册或复用登录就直接继续；不同企业的招聘系统分别核对，避免重复注册。
-- 在授权范围内填写注册资料；密码由可信密码管理器安全处理，或由用户直接在官网设置。
-- 已授权且账号匹配的邮箱验证可通过允许的工具处理；短信、扫码、人机验证等需要用户时，保存进度并给出明确待办，继续处理其他机会。
+- 在授权范围内填写注册资料；按网站规则生成独立随机密码，先保存到用户已有的可信密码管理器并确认能找回，再注册。完成后告知条目位置和状态，不在聊天或申请日志展示密码。
+- 验证码默认先检查官方 2Captcha MCP：服务可用、额度和解题余额足够且费用已获授权时优先使用；不可用或不足时转本地 `ddddocr` 图形识别。MCP 免费调用额度不等于免费解码，不会自动充值。复杂验证、本地无法识别或权限不允许时保留待办，详见 [验证码处理](skills/entry-level-job-application/references/captcha.md)。
+- 已授权且账号匹配的邮箱验证可通过允许的工具处理；短信、扫码及需要本人完成的验证交接给用户，继续处理其他机会。
 - 验证后回到原岗位续填；账号创建、草稿保存和申请成功分别记录。详见 [账号创建与恢复](skills/entry-level-job-application/references/accounts-and-recovery.md)。
 
 ## 内置 MCP 自动初始化
@@ -43,6 +44,8 @@
 
 - **Playwright MCP**：读取招聘网页、查看表单、填写和上传文件，由微软 Playwright 项目维护。
 - **Windows-MCP**：读取 Windows 窗口和屏幕状态，操作键鼠及应用窗口，由 CursorTouch 社区项目维护。
+
+验证码分支按需接入 **2Captcha 官方 MCP**，无可用额度时使用本地 **ddddocr** 库；这两项的初始化、凭据要求与回退条件见 [验证码处理](skills/entry-level-job-application/references/captcha.md)。2Captcha 是该服务商的官方实现，不是招聘企业的验证接口；其本地 MCP 会连接远端服务。ddddocr 是离线识别库，不是 MCP，也不能保证通过所有人机验证。
 
 这两项是独立的第三方开源 MCP 服务，**本仓库提供配置和使用流程，不包含它们的服务端源码**。安装和用户级配置已纳入技能启动流程，依赖也写入技能元数据。默认采用本机标准输入输出连接，不建立开机任务或自动接入个人浏览器会话；实际桌面操作只在需要时使用。
 
@@ -59,4 +62,5 @@
 - [信息收集与隐私](skills/entry-level-job-application/references/intake-and-privacy.md)
 - [岗位与志愿评分](skills/entry-level-job-application/references/scoring.md)
 - [账号创建与恢复](skills/entry-level-job-application/references/accounts-and-recovery.md)
+- [验证码处理](skills/entry-level-job-application/references/captcha.md)
 - [跨 Agent 安装与配置](skills/entry-level-job-application/references/clients.md)

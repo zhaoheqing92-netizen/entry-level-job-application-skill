@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "2captcha": {
+      "command": "npx",
+      "args": ["-y", "@2captcha/mcp@0.1.3"],
+      "env": {
+        "TOOLS": "get_account,captcha_balance,list_captcha_types,solve_captcha"
+      }
+    }
+  }
+}
