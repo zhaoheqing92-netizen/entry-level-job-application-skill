@@ -2,12 +2,28 @@
   "mcpServers": {
     "playwright": {
       "command": "npx",
-      "args": ["@playwright/mcp@latest"]
+      "args": [
+        "-y",
+        "@playwright/mcp@0.0.83"
+      ]
     },
     "windows-mcp": {
       "command": "uvx",
-      "args": ["windows-mcp", "serve", "--tools", "Screenshot,Snapshot,Click,Type,Scroll,Move,Shortcut,WaitFor,ControlStatus"],
-      "env": {"ANONYMIZED_TELEMETRY": "false"}
+      "args": [
+        "--python",
+        "3.14",
+        "--from",
+        "windows-mcp==0.8.8",
+        "windows-mcp",
+        "serve",
+        "--transport",
+        "stdio",
+        "--tools",
+        "Screenshot,Snapshot,Click,Type,Scroll,Move,Shortcut,WaitFor,ControlStatus"
+      ],
+      "env": {
+        "ANONYMIZED_TELEMETRY": "false"
+      }
     }
   }
 }

@@ -1,4 +1,13 @@
 interface:
   display_name: "初级岗位自动求职助手"
-  short_description: "按职业目标寻找初级岗位并在授权范围内完成官方申请"
-  default_prompt: "使用 $entry-level-job-application 根据我的简历和职业目标寻找适合的初级岗位，并按我的授权处理申请。"
+  short_description: "自动初始化配套工具，按职业目标寻找初级岗位并完成官方申请"
+  default_prompt: "使用 $entry-level-job-application，先自动初始化配套 MCP，再根据我的简历和职业目标寻找岗位，并按我的授权处理申请。"
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "playwright"
+      description: "浏览器页面读取、填表和附件上传；缺失时按技能初始化流程安装"
+    - type: "mcp"
+      value: "windows-mcp"
+      description: "Windows 桌面及原生文件窗口操作；Windows 上缺失时自动初始化"

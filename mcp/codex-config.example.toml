@@ -1,10 +1,10 @@
 [mcp_servers.playwright]
 command = "npx"
-args = ["@playwright/mcp@latest"]
+args = ["-y", "@playwright/mcp@0.0.83"]
 
 [mcp_servers.windows-mcp]
 command = "uvx"
-args = ["windows-mcp", "serve", "--tools", "Screenshot,Snapshot,Click,Type,Scroll,Move,Shortcut,WaitFor,ControlStatus"]
+args = ["--python", "3.14", "--from", "windows-mcp==0.8.8", "windows-mcp", "serve", "--transport", "stdio", "--tools", "Screenshot,Snapshot,Click,Type,Scroll,Move,Shortcut,WaitFor,ControlStatus"]
 
 [mcp_servers.windows-mcp.env]
 ANONYMIZED_TELEMETRY = "false"

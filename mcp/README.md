@@ -1,36 +1,22 @@
-# MCP 配套工具与接入
+# MCP 自动安装与配置
 
-本项目提供两套**外部开源 MCP 服务的配置**，不是重新实现或打包服务端。它们可以配合求职技能使用；实际可用性和操作权限由使用者的助手、设备和网站决定。
+Playwright MCP 与 Windows-MCP 已作为本技能的配套依赖写入元数据，并由求职流程的第 0 步自动检测、安装、配置及验证。Windows 默认补齐两项，非 Windows 跳过 Windows-MCP；已有可用配置直接复用。
 
-| 工具 | 适用范围 | 主要用途 | 来源 |
-|---|---|---|---|
-| Playwright MCP | 浏览器网页 | 查看页面结构、填写表单、上传文件 | [微软 Playwright MCP](https://github.com/microsoft/playwright-mcp) |
-| Windows-MCP | Windows 10/11 桌面 | 查看窗口及屏幕状态，操作界面、鼠标和键盘 | [CursorTouch Windows-MCP](https://github.com/CursorTouch/Windows-MCP) |
+实际执行以技能内的 [MCP 自动安装与初始化](../skills/entry-level-job-application/references/mcp.md) 为准，其中包含依赖安装、Codex 命令、配置合并、重复执行、失败恢复和连接验证。只复制或阅读本仓库不会自行启动安装，须由支持执行本地操作的助手运行技能。
 
-## 安装前
+## 配置模板
 
-- 使用支持本地 MCP 的助手。Playwright MCP 要求 Node.js 20 或更高版本；Windows-MCP 需要 Windows 10/11、`uvx` 和项目当前要求的 Python 环境，具体版本以其官方文档为准。
-- 客户端启动配置时，`npx` / `uvx` 可能从公共软件包仓库下载并运行代码；示例追随上游当前版本。使用前应自行核验来源、依赖和版本，需要可重复部署时改为经测试的固定版本。
-- Windows-MCP 上游默认启用匿名遥测，模板显式设置 `ANONYMIZED_TELEMETRY=false`。模板通过 `--tools` 仅暴露常用屏幕与输入工具，但桌面输入和屏幕访问本身仍有较高权限，并非安全隔离。
-- 先选择允许的工具与资料，确认自动填写、上传和提交的范围。工具本身具有操作能力不等于获得申请或披露个人资料的授权。
+- [通用 MCP JSON](mcp-config.example.json)
+- [Codex TOML](codex-config.example.toml)
 
-## 配置
+两份模板使用相同的固定版本：Playwright MCP 0.0.83、Windows-MCP 0.8.8；Windows-MCP 通过 uv 使用 Python 3.14，关闭匿名遥测并限制桌面工具。安装前核对上游元数据，不覆盖已有可用版本。
 
-对于使用 `mcpServers` JSON 格式的客户端，把 [mcp-config.example.json](mcp-config.example.json) 里的服务配置合并到客户端配置中；不要覆盖已有服务。对于 Codex 的 TOML 配置，参照 [codex-config.example.toml](codex-config.example.toml) 将配置段合并到用户自己的 `~/.codex/config.toml`。客户端的具体配置位置和重新加载方式以其文档为准。
+模板用于合并缺失的服务项，不能覆盖整份客户端配置。备份、运行记录及凭据保存在用户私有位置；不会自动安装浏览器扩展、创建开机任务或开放远程访问。
 
-确保客户端能找到 `npx` 和 `uvx`；Windows 环境下如找不到命令，请参照对应项目文档使用可执行文件的完整路径。重启或重新加载客户端后，在可用工具列表中确认两项服务已连接；若启动失败，检查错误、依赖版本和网络访问。无需桌面操作时可以只配置浏览器服务；无需浏览器自动化时可以只配置桌面服务。
+## 上游与账号
 
-配置示例使用本地标准输入输出（stdio），不开放远程监听。不要把桌面控制服务暴露到公网，也不要将密码、Cookie、令牌、浏览器配置目录或简历加入仓库。
+- [Playwright MCP 固定版本说明](https://github.com/microsoft/playwright-mcp/blob/v0.0.83/README.md)
+- [Windows-MCP 发布包元数据](https://pypi.org/project/windows-mcp/0.8.8/)
+- [账号创建与恢复](../skills/entry-level-job-application/references/accounts-and-recovery.md)
 
-## 使用顺序
-
-1. 首先使用助手内已有且获准使用的网页工具；需要 MCP 时优先使用 Playwright MCP 观察招聘页面和表单状态，再进行用户已授权的操作。
-2. Playwright 默认管理独立的浏览器配置，不保证能看到用户日常浏览器的标签、登录状态或 Cookie。若确需使用现有会话，先明确授权，再按 [Playwright 浏览器会话说明](https://github.com/microsoft/playwright-mcp#browser-extension) 配置扩展或其他官方支持的方式；不要复制、上传或公开会话数据。
-3. 需要操作 Windows 原生文件选择框或其他桌面界面时，在平台允许且用户授权的前提下使用 Windows-MCP。先观察目标窗口和当前状态，再执行操作并验证结果；不同工具可能使用不同截图、元素或坐标方式，按实际工具文档操作。
-4. 提交、填写、上传和勾选条款均受主技能的授权与事实规则约束。登录、验证码、权限限制或需本人确认的内容不能绕过。工具失败先记录原因，切换到允许的替代工具；无法处理时保存进度，不冒充成功。
-
-这两套服务器权限较广，运行时可能看到网页、屏幕上的隐私信息或操作其他窗口。使用者应在可信环境中配置，关闭无关窗口并仅授予完成任务所需的权限；本项目不保证任一招聘网站必然可自动化。
-
-## 账号和验证
-
-注册、账号已存在、邮箱激活及中断续填按 [账号创建与恢复](../skills/entry-level-job-application/references/accounts-and-recovery.md) 处理。这两套 MCP 不自带邮箱或密码管理能力；相关能力必须单独确认已连接、身份匹配且获授权。无法安全处理密码或完成本人验证时，保留当前申请让用户接手，随后从原岗位继续。
+本仓库不包含上述服务端源码。邮箱、密码管理与本人验证需要单独可用且获授权的能力，MCP 初始化成功不能替代申请提交或账号验证。
