@@ -15,7 +15,7 @@
 | DeepSeek Harness | `/entry-level-job-application` | Cordis MCP 插件与 overlay |
 | ZCode Agent | `$entry-level-job-application` | 原生 `mcp.servers` 或当前有效兼容来源 |
 
-[跨 Agent 安装与配置](skills/entry-level-job-application/references/clients.md) 包含各自技能目录、命令、模板和配置冲突处理。以上是文档核实与配置检查，尚未逐个客户端做完整安装和投递实测。`agents/openai.yaml` 仅是 Codex 扩展，其他 Agent 无需读取它。
+[跨 Agent 安装与配置](skills/entry-level-job-application/references/clients.md) 包含各自技能目录、命令、模板和配置冲突处理。以上是文档核实与配置检查，尚未逐个客户端做完整安装和投递实测。共享 MCP 已通过本机模拟表单测试，覆盖填写、双志愿、中文附件上传、可选营销取消及提交确认；详见[测试记录](TESTING.md)。`agents/openai.yaml` 仅是 Codex 扩展，其他 Agent 无需读取它。
 
 ## 如何使用
 
