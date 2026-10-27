@@ -1,0 +1,19 @@
+# 求职材料和运行记录应放在仓库之外；以下规则仅作额外保护。
+private/
+personal/
+applications/
+resumes/
+*.pdf
+*.doc
+*.docx
+*.xlsx
+*.csv
+*.png
+*.jpg
+*.jpeg
+*.env
+.env.*
+credentials*
+secrets*
+cookies*
+__pycache__/

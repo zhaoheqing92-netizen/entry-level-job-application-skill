@@ -1,0 +1,10 @@
+[mcp_servers.playwright]
+command = "npx"
+args = ["@playwright/mcp@latest"]
+
+[mcp_servers.windows-mcp]
+command = "uvx"
+args = ["windows-mcp", "serve", "--tools", "Screenshot,Snapshot,Click,Type,Scroll,Move,Shortcut,WaitFor,ControlStatus"]
+
+[mcp_servers.windows-mcp.env]
+ANONYMIZED_TELEMETRY = "false"
