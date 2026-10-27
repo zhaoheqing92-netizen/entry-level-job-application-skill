@@ -1,3 +1,4 @@
+# Codex 附加元数据；其他宿主按 SKILL.md 与 references/clients.md 执行。
 interface:
   display_name: "初级岗位自动求职助手"
   short_description: "自动初始化配套工具，按职业目标寻找初级岗位并完成官方申请"

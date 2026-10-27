@@ -4,9 +4,9 @@
 
 ## 1. 检测并复用
 
-1. 识别当前客户端、操作系统、可用 MCP 工具、用户级配置及已有运行时。优先使用客户端提供的管理接口；Codex 可先检查本机 `codex mcp --help`、`codex mcp list --json`。在内存中筛出所需字段，不打印整个配置或环境变量。
+1. 先读 [跨 Agent 适配](clients.md)，识别实际执行宿主、MCP 运行主机与系统、工具、配置作用域及已有运行时。只使用该宿主的管理接口和配置结构；不因机器上有 Codex CLI 就执行 Codex 安装命令。在内存中筛出所需字段，不打印整个配置或环境变量。
 2. 检查 Playwright MCP 与 Windows-MCP 是否已连接；同名或别名服务需核对实际来源和命令，不能仅凭名称判断。已可用就复用，不重复注册、不自动升级。已配置但断开时先诊断；用户主动禁用的服务不自动重新启用，同名不同服务不覆盖。
-3. Windows 10/11 默认补齐两项；非 Windows 只初始化 Playwright，Windows-MCP 记为“当前系统不支持”，不安装模拟环境。客户端不支持本地 MCP 时，使用已有允许的网页能力并明确限制。
+3. MCP 实际运行主机是 Windows 10/11 时默认补齐两项；非 Windows 只初始化 Playwright，Windows-MCP 记为“当前系统不支持”，不安装模拟环境。客户端不支持本地 MCP 时，使用已有允许的网页能力并明确限制。
 4. 两项独立处理：一项失败不回滚另一项已成功的配置。完成可做的初始化后继续求职流程，遇到依赖缺失的操作才保留待办。
 
 ## 2. 补齐依赖并缓存服务
@@ -35,36 +35,9 @@ uvx --python 3.14 --from windows-mcp==0.8.8 windows-mcp serve --help
 
 修改前将原配置备份到用户私有目录，不能放进技能仓库。优先客户端的新增服务接口，只添加缺失项；读取状态不明或配置有语法错误时不重写。写入前复查配置未被其他进程修改，保留所有其他服务、用户设置和认证信息。
 
-### Codex
+按 [跨 Agent 适配](clients.md) 只执行当前宿主的分支：Codex 使用其 CLI/TOML，Claude Code 使用其 CLI/作用域，DeepSeek Harness 使用 Cordis overlay，ZCode 使用当前有效来源的配置。不要将同一 JSON 包装复制给所有客户端。非 Codex 宿主不依赖 `agents/openai.yaml`；没有已核实分支时先查官方文档，不猜配置路径。
 
-确认本机支持相同参数后，仅对不存在的服务执行：
-
-```text
-codex mcp add playwright -- npx -y @playwright/mcp@0.0.83
-codex mcp add windows-mcp --env ANONYMIZED_TELEMETRY=false -- uvx --python 3.14 --from windows-mcp==0.8.8 windows-mcp serve --transport stdio --tools Screenshot,Snapshot,Click,Type,Scroll,Move,Shortcut,WaitFor,ControlStatus
-```
-
-Windows 上若客户端无法启动 `npx`，使用已定位的 `npx.cmd` 绝对路径或客户端官方支持的启动方式；先核查错误，不反复创建别名服务。
-
-### 使用 JSON 配置的客户端
-
-确认当前客户端确实采用 `mcpServers` 格式及配置位置，再用结构化编辑合并缺失的子项。以下不是覆盖整个文件的指令：
-
-```json
-{
-  "mcpServers": {
-    "playwright": {
-      "command": "npx",
-      "args": ["-y", "@playwright/mcp@0.0.83"]
-    },
-    "windows-mcp": {
-      "command": "uvx",
-      "args": ["--python", "3.14", "--from", "windows-mcp==0.8.8", "windows-mcp", "serve", "--transport", "stdio", "--tools", "Screenshot,Snapshot,Click,Type,Scroll,Move,Shortcut,WaitFor,ControlStatus"],
-      "env": {"ANONYMIZED_TELEMETRY": "false"}
-    }
-  }
-}
-```
+Windows 上若客户端无法启动 `npx`，按该宿主文档定位 `npx.cmd` 或使用支持的命令包装；不能将 Windows 启动方式带到 WSL/Linux。配置中的可执行路径和附件路径都必须能从实际 MCP 主机访问。
 
 使用本地 stdio，由客户端按需启动。不要执行 `windows-mcp install` 创建开机任务，不开启 HTTP/SSE 监听，不自动加入浏览器扩展、个人浏览器会话或远程桌面连接。Windows 工具白名单限制调用范围，但不构成安全隔离。
 

@@ -1,0 +1,19 @@
+# 合并到当前 profile 的 Cordis patch；不是 mcpServers JSON。
+# 非 Windows 运行环境请移除 windows-mcp 条目。
+- insert:
+    - id: job-application-playwright
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: playwright
+        transport: stdio
+        command: npx
+        args: ['-y', '@playwright/mcp@0.0.83']
+    - id: job-application-windows-mcp
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: windows-mcp
+        transport: stdio
+        command: uvx
+        args: ['--python', '3.14', '--from', 'windows-mcp==0.8.8', 'windows-mcp', 'serve', '--transport', 'stdio', '--tools', 'Screenshot,Snapshot,Click,Type,Scroll,Move,Shortcut,WaitFor,ControlStatus']
+        env:
+          ANONYMIZED_TELEMETRY: 'false'

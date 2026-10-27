@@ -4,11 +4,24 @@
 
 当申请要求填写多个志愿时，助手会先核查硬性条件，再从职业方向、已有能力、成长价值和实际条件等维度排序。它只勾选提交所必需且内容已核实的条款，记录真实状态，并在工具受阻时寻找可用的技能或工具继续处理。
 
+## 适配哪些 Agent
+
+核心采用通用 `SKILL.md + references/`，不依赖 Codex 专用工具。已按官方资料加入四个宿主的配置分支：
+
+| Agent | 技能调用 | MCP 接入 |
+|---|---|---|
+| Codex | `$entry-level-job-application` | Codex CLI / TOML |
+| Claude Code | `/entry-level-job-application` | Claude CLI / 对应作用域 |
+| DeepSeek Harness | `/entry-level-job-application` | Cordis MCP 插件与 overlay |
+| ZCode Agent | `$entry-level-job-application` | 原生 `mcp.servers` 或当前有效兼容来源 |
+
+[跨 Agent 安装与配置](skills/entry-level-job-application/references/clients.md) 包含各自技能目录、命令、模板和配置冲突处理。以上是文档核实与配置检查，尚未逐个客户端做完整安装和投递实测。`agents/openai.yaml` 仅是 Codex 扩展，其他 Agent 无需读取它。
+
 ## 如何使用
 
-1. 在支持技能的 AI 助手中安装 `skills/entry-level-job-application` 目录，并提供网页搜索、读取本地文件和执行本地安装所需的权限。具体安装方式以所用助手为准。
+1. 在支持技能的 AI 助手中安装 `skills/entry-level-job-application` 目录，并提供网页搜索、读取本地文件和执行本地安装所需的权限。按上方适配指南选择该宿主的技能目录，复制整个文件夹以保留引用资源。
 2. 告诉助手简历位置、求职方向、可接受地点、是否允许自动提交，以及可用于申请的附件和文件夹。助手会先读取现有信息，再集中询问无法确定且确实需要的信息。
-3. 可说：“使用 `$entry-level-job-application`，先自动初始化配套 MCP，再查找适合的初级岗位；在我授权的范围内填写并提交申请。”也可以只要求搜索、评估或准备草稿。
+3. 可说：“请加载 entry-level-job-application 技能，先识别当前 Agent 并初始化配套 MCP，再查找适合的初级岗位，在我授权的范围内填写并提交。”也可使用表中各客户端的快捷调用；也可以只要求搜索、评估或准备草稿。
 4. 如果需要定期执行，明确频率、时区和通知方式；是否能定时取决于助手所在平台。说“暂停”即可停止后续操作，恢复后先核对上次进度。
 
 ## 遇到需要注册账号怎么办
@@ -20,7 +33,7 @@
 
 ## 内置 MCP 自动初始化
 
-正式调用本技能执行求职流程时，助手先检测工具，自动安装缺失的依赖和配套 MCP、合并当前客户端配置并验证连接，再开始申请。Windows 默认初始化 Playwright MCP 和 Windows-MCP；其他系统只初始化可支持的工具。已有可用配置直接复用，不重复安装或自动升级。
+正式调用本技能执行求职流程时，助手先检测工具，自动安装缺失的依赖和配套 MCP、合并当前客户端配置并验证连接，再开始申请。MCP 实际运行环境为 Windows 时默认初始化 Playwright MCP 和 Windows-MCP；其他系统只初始化可支持的工具。远程、容器和 WSL 环境不自动共享本机桌面。已有可用配置直接复用，不重复安装或自动升级。
 
 初始化属于技能工作流的一部分，包含必要的用户级下载和配置。用户已有此项授权时不重复确认；平台要求的权限审批和客户端重新加载仍需按提示处理。某项失败会保留进度并继续其他可做的工作。只阅读或修改技能不会触发安装。
 
@@ -46,3 +59,4 @@
 - [信息收集与隐私](skills/entry-level-job-application/references/intake-and-privacy.md)
 - [岗位与志愿评分](skills/entry-level-job-application/references/scoring.md)
 - [账号创建与恢复](skills/entry-level-job-application/references/accounts-and-recovery.md)
+- [跨 Agent 安装与配置](skills/entry-level-job-application/references/clients.md)
