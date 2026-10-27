@@ -17,3 +17,11 @@ credentials*
 secrets*
 cookies*
 __pycache__/
+
+# 认证会话与验证码不得进入公开版本。
+.auth/
+playwright/.auth/
+browser-profile/
+storage-state*.json
+storageState*.json
+*verification-code*
