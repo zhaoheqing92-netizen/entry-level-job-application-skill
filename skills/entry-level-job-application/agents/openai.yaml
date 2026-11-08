@@ -1,14 +1,14 @@
 # Codex 附加元数据；其他宿主按 SKILL.md 与 references/clients.md 执行。
 interface:
   display_name: "初级岗位自动求职助手"
-  short_description: "自动初始化配套工具，按职业目标寻找初级岗位并完成官方申请"
-  default_prompt: "使用 $entry-level-job-application，先自动初始化配套 MCP，再根据我的简历和职业目标寻找岗位，并按我的授权处理申请。"
+  short_description: "按职业目标寻找初级岗位并处理官方申请，需要时自动补齐工具"
+  default_prompt: "使用 $entry-level-job-application，根据我的简历和职业目标寻找岗位，按我的授权处理申请；需要缺失工具时，在已有授权内自动初始化。"
 
 dependencies:
   tools:
     - type: "mcp"
       value: "playwright"
-      description: "浏览器页面读取、填表和附件上传；缺失时按技能初始化流程安装"
+      description: "当前浏览器能力不足时，按需初始化以读取页面、填表和上传附件"
     - type: "mcp"
       value: "windows-mcp"
-      description: "Windows 桌面及原生文件窗口操作；Windows 上缺失时自动初始化"
+      description: "确需 Windows 桌面或原生窗口操作时，在支持的主机按需初始化"

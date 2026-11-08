@@ -1,0 +1,156 @@
+{
+  "evaluation_type": "simulation_only",
+  "generated_at": "2026-11-08T15:33:54.284462+00:00",
+  "fixture_time": "2026-11-08T02:30:00+00:00",
+  "external_submissions": 0,
+  "payment_transactions": 0,
+  "cases": [
+    {
+      "name": "完整且已核对的虚构申请",
+      "expected_ready": true,
+      "actual_ready": true,
+      "passed": true,
+      "issues": [],
+      "warnings": [],
+      "score_range": [
+        61.0,
+        77.0
+      ]
+    },
+    {
+      "name": "毕业届别硬性不符，满分不能抵消",
+      "expected_ready": false,
+      "actual_ready": false,
+      "passed": true,
+      "issues": [
+        "requirement_failed"
+      ],
+      "warnings": [],
+      "score_range": [
+        100.0,
+        100.0
+      ]
+    },
+    {
+      "name": "毕业资料存在冲突",
+      "expected_ready": false,
+      "actual_ready": false,
+      "passed": true,
+      "issues": [
+        "requirement_facts",
+        "field_fact"
+      ],
+      "warnings": [],
+      "score_range": [
+        61.0,
+        77.0
+      ]
+    },
+    {
+      "name": "新检查时间不能替换旧官网证据",
+      "expected_ready": false,
+      "actual_ready": false,
+      "passed": true,
+      "issues": [
+        "stale_job",
+        "requirement_evidence",
+        "requirement_evidence",
+        "requirement_evidence",
+        "requirement_evidence",
+        "requirement_evidence",
+        "requirement_evidence"
+      ],
+      "warnings": [],
+      "score_range": [
+        61.0,
+        77.0
+      ]
+    },
+    {
+      "name": "完整JD没有经验限制，保留提醒并继续",
+      "expected_ready": true,
+      "actual_ready": true,
+      "passed": true,
+      "issues": [],
+      "warnings": [
+        "experience: no restriction was stated; this does not guarantee employer acceptance"
+      ],
+      "score_range": [
+        61.0,
+        77.0
+      ]
+    },
+    {
+      "name": "可选营销被误选",
+      "expected_ready": false,
+      "actual_ready": false,
+      "passed": true,
+      "issues": [
+        "unsafe_term"
+      ],
+      "warnings": [],
+      "score_range": [
+        61.0,
+        77.0
+      ]
+    },
+    {
+      "name": "另一公司的开放题不能直接套用",
+      "expected_ready": false,
+      "actual_ready": false,
+      "passed": true,
+      "issues": [
+        "answer_scope",
+        "answer_scope"
+      ],
+      "warnings": [],
+      "score_range": [
+        61.0,
+        77.0
+      ]
+    },
+    {
+      "name": "英文栏位不能上传中文版本",
+      "expected_ready": false,
+      "actual_ready": false,
+      "passed": true,
+      "issues": [
+        "attachment_mismatch"
+      ],
+      "warnings": [],
+      "score_range": [
+        61.0,
+        77.0
+      ]
+    }
+  ],
+  "workflow": [
+    {
+      "name": "本人验证未完成时阻止提交",
+      "expected": "blocked",
+      "actual": "blocked",
+      "passed": true
+    },
+    {
+      "name": "核对已解决卡点后开始一次提交",
+      "expected": "accepted",
+      "actual": "accepted",
+      "passed": true
+    },
+    {
+      "name": "超时结果不明时阻止重复提交",
+      "expected": "blocked",
+      "actual": "blocked",
+      "passed": true
+    },
+    {
+      "name": "已确认提交后继续阻止重复",
+      "expected": "blocked",
+      "actual": "blocked",
+      "passed": true
+    }
+  ],
+  "final_state": "submitted",
+  "passed": true,
+  "limits": "Synthetic regression checks only; not live ATS reliability, agent benchmark, payment integration or hiring outcomes."
+}

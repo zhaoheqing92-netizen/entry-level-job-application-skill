@@ -1,0 +1,47 @@
+{
+  "audit_skill": "experiment-audit",
+  "verdict": "PASS",
+  "reason_code": "local_simulation_evidence_matches",
+  "summary": "限定本地模拟结论有文件和独立复跑支持；不涵盖真实招聘、付费或全客户端兼容性。",
+  "audited_input_hashes": {
+    "README.md": "sha256:af25d7136561f75a61cb2c2f74f279d9acd368d0bfdce813080c0e9e08034690",
+    "README.en.md": "sha256:17247d9ef65b409ad161d5601d07d7b0811dbbffecacbea596913d6e44f69f34",
+    "TESTING.md": "sha256:67ec89d8888f0602cc0010f9e53dece6cd2e3ef55e6ab7108598016af521600b",
+    "docs/competition.md": "sha256:23c55e06bc6976113acf0ed88f88c2a24ca0d87a61942fb9f6c66d992e69f89e",
+    "evaluation/tests.txt": "sha256:cb9e2efc1995bcf4d56cc2e1e95c3afbf3769a219332893fc33f2f478ed5b795",
+    "evaluation/demo/demo.json": "sha256:a21d81bc5fc81ee3ad0994cd1d8721f5b899aa966df61b4ce33f9cea051f64e0",
+    "evaluation/forward-test.md": "sha256:2cb1b457448f2b2e264d83fda32bd96a16233acff510b1c0630d89d7c197b2af",
+    "tools/demo.py": "sha256:3282870e979c5573142dfa7d7723a02efe46b2cefbf5c974a17c4bffa1c116db",
+    "tools/package_skill.py": "sha256:9ba5625ae864af17ab5bba45a6c3e7309913dac92d2149adc118dd01749051ed",
+    "tests/test_check_application.py": "sha256:7cbabaccc0775a46d8b0e807ad12cebdf767dbe7d234eddc9e2cab8ce64e85cd",
+    "tests/test_application_state.py": "sha256:5a019581a9bf9d9e266ec5478661a70fb11d27b43a43c17ed0aedcd5b47df8b8",
+    "tests/test_delivery.py": "sha256:509dd69bbb630c2665291c029e0fa7b9449fc7f466c0dd4e494c7c0c58737c02",
+    "tests/scenarios/quick-search.md": "sha256:5c4bcf2a03caa2338526ba54125884a1ab6446a44692417f54be9a66ae2f1807",
+    "skills/entry-level-job-application/assets/application.example.json": "sha256:cec5c56b5c70894b29631aba991b8de43e4d8d55b676279537371f08905a86a3",
+    "skills/entry-level-job-application/scripts/check_application.py": "sha256:9f9ba356ec06a08e4cd0f1c9357ad73978e84f92a78d9b4a66732454272cc6e4",
+    "skills/entry-level-job-application/scripts/application_state.py": "sha256:2bbc4f9179577d02bb91850c7a27f533e9d12134f32aed51a108cef5bfdde870"
+  },
+  "trace_path": ".aris/traces/experiment-audit/2026-11-08_run01/",
+  "agent_id": "/root/final_evidence_audit",
+  "requested_reviewer_model": "gpt-6-astra",
+  "reported_reviewer_model": null,
+  "reviewer_reasoning_requested": "ultra",
+  "review_independence": "same-family",
+  "acceptance_status": "provisional",
+  "identity_verified": false,
+  "generated_at": "2026-11-08T15:38:50.611Z",
+  "checks": {
+    "gt_provenance": "PASS",
+    "score_normalization": "PASS",
+    "result_existence": "PASS",
+    "dead_code": "PASS",
+    "scope": "PASS",
+    "eval_type": "simulation_only"
+  },
+  "limitations": [
+    "历史十月集成未重跑",
+    "单个Agent案例的执行元数据未被本次审查独立认证",
+    "未验证真实ATS、全部客户端或支付"
+  ],
+  "review_completed": true
+}

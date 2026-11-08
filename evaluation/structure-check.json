@@ -1,0 +1,21 @@
+{
+  "checked_at": "2026-11-08T15:37:32.943Z",
+  "skill_format": "passed",
+  "relative_links": {
+    "checked": 67,
+    "missing": 0
+  },
+  "json_files": "parsed",
+  "known_personal_data_scan": "no_matches",
+  "zip": {
+    "file": "dist/entry-level-job-application-2026-11-08.zip",
+    "bytes": 42676,
+    "sha256": "5b873aa5dcefe36cc448456ab70bf18456e735d958948e0670a5e3347d0f2655",
+    "isolated_extract_links_and_script_help": "passed"
+  },
+  "limitations": [
+    "Known-string scanning is not a proof that every possible secret pattern is absent.",
+    "The ZIP excludes private files by an explicit allowlist.",
+    "These checks do not verify live ATS submissions, all clients, or payments."
+  ]
+}

@@ -1,6 +1,6 @@
 # MCP 自动安装与配置
 
-Playwright MCP 与 Windows-MCP 已作为本技能的配套依赖写入元数据，并由求职流程的第 0 步识别宿主后自动检测、安装、配置及验证。非 Codex 宿主按通用正文执行，不依赖 Codex 元数据。Windows 默认补齐两项，非 Windows 跳过 Windows-MCP；已有可用配置直接复用。
+先复用当前已可用的搜索、浏览器和文件工具。只有本步缺少必要能力且已有初始化授权时，助手才检测、安装、配置并验证相应 MCP；确需 Windows 原生界面时再补 Windows-MCP，不因主机是 Windows 就安装两项。非 Codex 宿主按通用正文执行，不依赖 Codex 元数据。
 
 实际执行以技能内的 [MCP 自动安装与初始化](../skills/entry-level-job-application/references/mcp.md) 为准，其中包含依赖安装、配置保护、失败恢复和连接验证；各宿主命令与路径见 [跨 Agent 适配](../skills/entry-level-job-application/references/clients.md)。只复制或阅读本仓库不会自行启动安装，须由支持执行本地操作的助手运行技能。
 

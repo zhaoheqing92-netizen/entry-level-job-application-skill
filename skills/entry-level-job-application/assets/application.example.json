@@ -1,0 +1,71 @@
+{
+  "candidate_ref": "fictional-candidate-01",
+  "job": {
+    "employer": "Example Research",
+    "job_id": "GRAD-TEST-01",
+    "cycle": "2027",
+    "source_id": "job-page",
+    "status": "open",
+    "verified_at": "2026-11-08T10:00:00+08:00"
+  },
+  "sources": {
+    "job-page": {
+      "kind": "official",
+      "ref": "https://careers.example.test/jobs/GRAD-TEST-01",
+      "official_entry_url": "https://example.test/careers",
+      "employer": "Example Research",
+      "job_id": "GRAD-TEST-01",
+      "verified": true,
+      "observed_at": "2026-11-08T10:00:00+08:00"
+    },
+    "resume": {
+      "kind": "candidate",
+      "ref": "synthetic:resume-v1",
+      "candidate_ref": "fictional-candidate-01",
+      "verified": true
+    },
+    "candidate-confirmation": {
+      "kind": "authorization",
+      "ref": "synthetic:conversation-1",
+      "candidate_ref": "fictional-candidate-01",
+      "verified": true
+    }
+  },
+  "facts": {
+    "degree": {"status": "confirmed", "value": "Bachelor", "source_ids": ["resume"]},
+    "major": {"status": "confirmed", "value": "Statistics", "source_ids": ["resume"]},
+    "graduation": {"status": "confirmed", "value": "2027-06", "source_ids": ["resume"]},
+    "location": {"status": "confirmed", "value": "Example City", "source_ids": ["candidate-confirmation"]},
+    "work_authorization": {"status": "confirmed", "value": true, "source_ids": ["candidate-confirmation"]},
+    "project": {"status": "confirmed", "value": "Cleaned a synthetic course dataset", "source_ids": ["resume"]}
+  },
+  "requirements": {
+    "degree": {"status": "pass", "quote": "Bachelor degree required", "source_id": "job-page", "fact_ids": ["degree"]},
+    "major": {"status": "pass", "quote": "Statistics or related subject", "source_id": "job-page", "fact_ids": ["major"]},
+    "graduation": {"status": "pass", "quote": "Graduating during 2027", "source_id": "job-page", "fact_ids": ["graduation"]},
+    "experience": {"status": "no_restriction", "quote": "No prior work experience required", "source_id": "job-page"},
+    "location": {"status": "pass", "quote": "Work in Example City", "source_id": "job-page", "fact_ids": ["location"]},
+    "work_authorization": {"status": "pass", "quote": "Existing work authorization required", "source_id": "job-page", "fact_ids": ["work_authorization"]}
+  },
+  "fields": [
+    {"name": "Graduation month", "required": true, "value": "2027-06", "fact_id": "graduation"},
+    {"name": "Work authorization", "required": true, "value": true, "fact_id": "work_authorization"},
+    {"name": "Relevant experience", "required": true, "text": "I cleaned a synthetic course dataset.", "fact_ids": ["project"], "reviewed": true, "employer": "Example Research", "job_id": "GRAD-TEST-01"}
+  ],
+  "attachments": [
+    {"required": true, "ref": "synthetic:resume-en-v1", "authorized": true, "role": "resume", "language": "en", "expected_role": "resume", "expected_language": "en"}
+  ],
+  "terms": [
+    {"id": "necessary-processing", "required": true, "selected": true, "authorized": true, "applicable": true},
+    {"id": "optional-marketing", "required": false, "selected": false}
+  ],
+  "authorization": {
+    "candidate_ref": "fictional-candidate-01",
+    "submit": true,
+    "paused": false,
+    "scope": [{"employer": "Example Research", "job_ids": ["GRAD-TEST-01"]}],
+    "attachment_refs": ["synthetic:resume-en-v1"]
+  },
+  "form_reviewed": true,
+  "fit": {"goals": 4, "experience": 3, "growth": 4, "conditions": [2, 4], "interests": null}
+}

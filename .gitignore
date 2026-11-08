@@ -25,3 +25,11 @@ browser-profile/
 storage-state*.json
 storageState*.json
 *verification-code*
+
+# 本地核查与发布临时产物，不能进入开源包。
+*.sqlite
+*.sqlite-*
+*.db
+dist/
+.aris/
+.pytest_cache/
