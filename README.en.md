@@ -42,6 +42,6 @@ python tools/demo.py
 
 On Windows, use the interpreter's actual path if needed to avoid Store aliases. The demo uses fictional data and does not log in or submit applications.
 
-See [test coverage](TESTING.md) and the [demo and competition notes](docs/competition.md). Documented configuration branches exist for Codex, Claude Code, DeepSeek Harness, and ZCode; they do not establish universal compatibility. Current evidence is local and simulated: live ATS submissions, every client integration, and marketplace purchase/delivery have not been verified.
+See [test coverage](TESTING.md) and the [offline demo guide](docs/demo.md). Documented configuration branches exist for Codex, Claude Code, DeepSeek Harness, and ZCode; they do not establish universal compatibility. Current evidence is local and simulated: live ATS submissions, every client integration, and marketplace purchase/delivery have not been verified.
 
 Keep resumes, credentials, screenshots, and application records outside this public repository. Buying the skill does not grant permission to access personal data or submit applications.

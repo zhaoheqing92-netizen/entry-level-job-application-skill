@@ -7,7 +7,6 @@
     "README.md": "sha256:af25d7136561f75a61cb2c2f74f279d9acd368d0bfdce813080c0e9e08034690",
     "README.en.md": "sha256:17247d9ef65b409ad161d5601d07d7b0811dbbffecacbea596913d6e44f69f34",
     "TESTING.md": "sha256:67ec89d8888f0602cc0010f9e53dece6cd2e3ef55e6ab7108598016af521600b",
-    "docs/competition.md": "sha256:23c55e06bc6976113acf0ed88f88c2a24ca0d87a61942fb9f6c66d992e69f89e",
     "evaluation/tests.txt": "sha256:cb9e2efc1995bcf4d56cc2e1e95c3afbf3769a219332893fc33f2f478ed5b795",
     "evaluation/demo/demo.json": "sha256:a21d81bc5fc81ee3ad0994cd1d8721f5b899aa966df61b4ce33f9cea051f64e0",
     "evaluation/forward-test.md": "sha256:2cb1b457448f2b2e264d83fda32bd96a16233acff510b1c0630d89d7c197b2af",
@@ -43,5 +42,12 @@
     "单个Agent案例的执行元数据未被本次审查独立认证",
     "未验证真实ATS、全部客户端或支付"
   ],
-  "review_completed": true
+  "review_completed": true,
+  "publication_note": {
+    "date": "2026-11-08",
+    "archived_input_references_removed": 1,
+    "original_audited_commit": "d359242e27ab34ea85feafa6bd2eb32127137a58",
+    "reaudited": false,
+    "details": "原始报告保留在仓库外；其余哈希和结论属于原快照，更新后的 README 与新增演示说明不在原审计范围内。"
+  }
 }
