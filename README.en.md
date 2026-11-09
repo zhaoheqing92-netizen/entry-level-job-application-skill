@@ -6,6 +6,13 @@ An Agent skill that turns a resume, career goals, and a clear authorization scop
 
 [Download the customer bundle](downloads/entry-level-job-application-with-guide.zip) for the skill plus a Chinese guide. Install the skill and tell your Agent what you need. The optional `guide.html` explains setup and helps compose prompts; it does not search or apply, and you can skip it. Older skill-only ZIPs do not include the guide. Marketplace delivery files must be replaced separately.
 
+## Get the skill or support the author
+
+- **Free:** [skill source](skills/entry-level-job-application) · [complete bundle with Chinese guide](downloads/entry-level-job-application-with-guide.zip)
+- **Support the author:** [purchase through SkillPay](https://render.alipay.com/p/yuyan/180020010001298808/product.html?caprMode=sync&merchantId=2088822673721480&productId=P0806000212843919). One-time price: CNY 19.9; the product page controls the current price.
+
+Both channels provide the same skill. The Chinese guide and configuration examples are also publicly available for free. Purchasing supports the author and provides the packaged files through the platform; there are no paid-only features. Bring a compatible Agent; model costs are separate. Human application services and hiring guarantees are not included.
+
 ## Get started
 
 Copy the complete [skills/entry-level-job-application](skills/entry-level-job-application) folder into your Agent's skill directory, including its references, scripts, assets, and metadata. See the [client guide](skills/entry-level-job-application/references/clients.md) for documented host-specific paths and invocation syntax. The operational skill and detailed references are currently in Chinese.
