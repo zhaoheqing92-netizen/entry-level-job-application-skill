@@ -9,7 +9,15 @@ An Agent skill that turns a resume, career goals, and a clear authorization scop
 ## Get the skill or support the author
 
 - **Free:** [skill source](skills/entry-level-job-application) · [complete bundle with Chinese guide](downloads/entry-level-job-application-with-guide.zip)
-- **Support the author:** [purchase through SkillPay](https://render.alipay.com/p/yuyan/180020010001298808/product.html?caprMode=sync&merchantId=2088822673721480&productId=P0806000212843919). One-time price: CNY 19.9; the product page controls the current price.
+- **Support the author:** One-time price: CNY 19.9; the product page controls the current price.
+
+**Scan with Alipay to view the product and purchase**
+
+On a computer, scan this QR code with the Alipay app on your phone. On a phone, save the image and use Alipay to recognize it.
+
+<img src="docs/skillpay-purchase-qr.png" alt="SkillPay product QR code — scan with Alipay" width="280">
+
+[Product share link — open inside Alipay](https://render.alipay.com/p/yuyan/180020010001298808/product.html?caprMode=sync&merchantId=2088822673721480&productId=P0806000212843919). A desktop browser may only show an instruction to scan with Alipay.
 
 Both channels provide the same skill. The Chinese guide and configuration examples are also publicly available for free. Purchasing supports the author and provides the packaged files through the platform; there are no paid-only features. Bring a compatible Agent; model costs are separate. Human application services and hiring guarantees are not included.
 

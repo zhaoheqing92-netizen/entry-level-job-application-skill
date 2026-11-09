@@ -9,7 +9,15 @@
 ## 免费获取与购买支持
 
 - **免费使用**：[技能源码](skills/entry-level-job-application) · [完整下载包（含中文教程）](downloads/entry-level-job-application-with-guide.zip)
-- **支持作者**：[前往 SkillPay 购买](https://render.alipay.com/p/yuyan/180020010001298808/product.html?caprMode=sync&merchantId=2088822673721480&productId=P0806000212843919)，一次性 ¥19.9，最终价格以商品页为准。
+- **支持作者**：一次性 ¥19.9，最终价格以商品页为准。
+
+**用支付宝扫码查看商品并购买**
+
+电脑浏览时，用手机支付宝扫描下方二维码；手机浏览时，可保存二维码后用支付宝识别。
+
+<img src="docs/skillpay-purchase-qr.png" alt="初级岗位求职助手 SkillPay 商品二维码，请用支付宝扫描" width="280">
+
+[商品分享链接（请在支付宝内打开）](https://render.alipay.com/p/yuyan/180020010001298808/product.html?caprMode=sync&merchantId=2088822673721480&productId=P0806000212843919)。普通电脑浏览器打开此分享链接可能只显示“请使用支付宝扫码打开”。
 
 两种渠道提供同一套技能，中文教程和配置示例也公开免费。付费可通过平台获取整理好的交付包并支持作者，没有付费独占功能。需自备兼容 Agent，模型费用另计；不包含人工代投或录用保证。
 
