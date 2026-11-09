@@ -1,0 +1,4 @@
+# 按需合并到 ~/.codex/config.toml；不要整份覆盖
+[mcp_servers.playwright]
+command = "npx"
+args = ["-y", "@playwright/mcp@0.0.83"]

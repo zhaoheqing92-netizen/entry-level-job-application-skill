@@ -1,0 +1,23 @@
+{
+  "mcpServers": {
+    "windows-mcp": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "--python",
+        "3.14",
+        "--from",
+        "windows-mcp==0.8.8",
+        "windows-mcp",
+        "serve",
+        "--transport",
+        "stdio",
+        "--tools",
+        "Screenshot,Snapshot,Click,Type,Scroll,Move,Shortcut,WaitFor,ControlStatus"
+      ],
+      "env": {
+        "ANONYMIZED_TELEMETRY": "false"
+      }
+    }
+  }
+}

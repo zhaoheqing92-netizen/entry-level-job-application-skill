@@ -6,6 +6,12 @@
 
 这是可安装到 Agent 的技能，不是自行运行的投递机器人，也不保证录用。用户不用填写内部 JSON 或先完成一份环境问卷。
 
+## 交互教程
+
+第一次使用，可以先打开[交互图文教程](docs/starter-kit/README.md)：选择操作，填岗位和城市，复制给 Agent。下载仓库后，用浏览器打开 `docs/starter-kit/guide.html`；无需构建或安装前端依赖。
+
+![交互教程预览](docs/starter-kit/preview.png)
+
 ## 快速开始
 
 1. 将完整的 [skills/entry-level-job-application](skills/entry-level-job-application) 文件夹放入当前 Agent 的技能目录，保留其中全部子目录，包括 `references/`、`scripts/`、`assets/` 和 `agents/`。各宿主路径见[安装与适配](skills/entry-level-job-application/references/clients.md)。

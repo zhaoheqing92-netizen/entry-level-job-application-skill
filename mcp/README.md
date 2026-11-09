@@ -4,6 +4,8 @@
 
 实际执行以技能内的 [MCP 自动安装与初始化](../skills/entry-level-job-application/references/mcp.md) 为准，其中包含依赖安装、配置保护、失败恢复和连接验证；各宿主命令与路径见 [跨 Agent 适配](../skills/entry-level-job-application/references/clients.md)。只复制或阅读本仓库不会自行启动安装，须由支持执行本地操作的助手运行技能。
 
+只缺一项能力时，可用[教程中的拆分配置](../docs/starter-kit/examples/README.md)，分别添加浏览器或可选 Windows 桌面工具。
+
 ## 配置模板
 
 - [mcpServers 外壳示例](mcp-config.example.json)：仅供明确支持该结构的入口使用。

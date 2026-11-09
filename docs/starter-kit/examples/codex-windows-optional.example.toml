@@ -1,0 +1,7 @@
+# 可选：仅 Windows 交互桌面；按需合并，不要覆盖
+[mcp_servers.windows-mcp]
+command = "uvx"
+args = ["--python", "3.14", "--from", "windows-mcp==0.8.8", "windows-mcp", "serve", "--transport", "stdio", "--tools", "Screenshot,Snapshot,Click,Type,Scroll,Move,Shortcut,WaitFor,ControlStatus"]
+
+[mcp_servers.windows-mcp.env]
+ANONYMIZED_TELEMETRY = "false"

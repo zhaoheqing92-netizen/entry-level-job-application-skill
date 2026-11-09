@@ -33,3 +33,7 @@ storageState*.json
 dist/
 .aris/
 .pytest_cache/
+
+# Public tutorial assets contain no personal information.
+!docs/starter-kit/guide.pdf
+!docs/starter-kit/preview.png

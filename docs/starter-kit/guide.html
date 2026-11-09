@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>求职小助手 · 从一句话开始</title>
+<style>
+:root{--ink:#1c2c3b;--muted:#536676;--blue:#204ed8;--sky:#e9f2fa;--orange:#ff965f;--paper:#fff;--line:#c7d5e0;--radius:14px;--font:"Noto Sans SC","Microsoft YaHei","PingFang SC",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--sky);color:var(--ink);font:15px/1.7 var(--font)}::selection{background:#ffd5bd;color:var(--ink)}html{scroll-behavior:smooth;scrollbar-color:#8babc5 var(--sky)}button,input,select,textarea{font:inherit}button,a,input,select,textarea,summary{-webkit-tap-highlight-color:transparent}button,a{touch-action:manipulation}button{cursor:pointer}a{color:var(--blue);text-underline-offset:4px}button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--blue);outline-offset:4px}input,textarea{caret-color:var(--blue)}button{border:0}[hidden]{display:none!important}.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+header.wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:26px;padding-bottom:26px}.brand{display:flex;align-items:center;gap:11px;color:var(--ink);font-size:18px;font-weight:750;text-decoration:none}.brand svg{width:32px;height:32px}.head-link{font-size:14px;color:var(--ink)}.hero{display:grid;grid-template-columns:1.15fr 1fr;align-items:center;gap:40px;padding-top:28px;padding-bottom:36px}h1{font-size:clamp(36px,5vw,58px);line-height:1.22;letter-spacing:-.035em;font-weight:800;margin:0 0 20px;text-wrap:balance}h2{font-size:24px;line-height:1.4;letter-spacing:-.02em;margin:0 0 10px;font-weight:750}h3{font-size:18px;line-height:1.5;margin:0 0 12px;font-weight:700}.hero p{font-size:17px;max-width:32em;margin:0;color:var(--muted)}.dialog-demo{padding:20px 6px 16px 24px;position:relative}.message{padding:18px 22px;border-radius:16px 16px 3px 16px;background:var(--blue);color:white;font-size:18px;font-weight:550;margin-left:30px;transform:rotate(2deg)}.reply{background:white;border-radius:3px 16px 16px 16px;padding:18px 22px;margin:16px 40px 0 0;font-size:17px;transform:rotate(-2deg)}.reply svg{width:20px;height:20px;vertical-align:middle;margin-right:6px;color:var(--blue)}.dialog-demo small{display:block;text-align:right;color:var(--muted);font-size:12px;padding:12px 30px 0 0}.workbench{background:var(--paper);border-radius:20px;overflow:hidden;box-shadow:0 16px 44px rgba(0,0,0,.07)}.tabs{display:flex;border-bottom:1px solid var(--line);padding:0 28px;gap:26px}.tabs button{min-height:70px;padding:16px 4px;background:transparent;color:var(--muted);font-size:17px;position:relative;display:flex;align-items:center;gap:10px;white-space:nowrap}.tabs button[aria-selected=true]{color:var(--blue);font-weight:700}.tabs button[aria-selected=true]:after{content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--blue);border-radius:3px 3px 0 0}.tabs span{display:grid;place-items:center;width:23px;height:23px;border-radius:50%;font-size:12px;background:#edf2f5;color:var(--muted)}.tabs button[aria-selected=true] span{background:var(--blue);color:white}.tabs button:hover{color:var(--blue)}.workspace{display:grid;grid-template-columns:1fr 1fr;min-height:380px}.entry{padding:30px 32px 32px;min-width:0}.hint{color:var(--muted);margin:0 0 22px;font-size:14px}.fields{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:block;font-size:14px;font-weight:650;margin:0 0 17px}.field input,.field textarea,.field select{display:block;margin-top:8px;width:100%;border:1px solid #9bacba;border-radius:8px;padding:10px 12px;background:white;color:var(--ink);font-weight:400;min-height:45px}.field textarea{min-height:78px;resize:vertical}.field input::placeholder,.field textarea::placeholder{color:#5e7181;opacity:1}.field input:hover,.field textarea:hover,.field select:hover{border-color:var(--blue)}.inline-note{font-size:12px;color:var(--muted);font-weight:400}.quiet-button{padding:4px 0;border-bottom:1px solid var(--line);background:none;color:var(--blue);font-size:13px;min-height:32px}.extra{margin-top:22px}.extra summary{color:var(--muted);font-size:14px;cursor:pointer;padding:9px 0}.extra[open] summary{margin-bottom:12px}.extra .field{font-weight:500}.preview{background:#f3f7fc;padding:26px 30px 28px;display:flex;flex-direction:column;min-width:0}.preview-title{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px;margin-bottom:16px}.preview-title svg{width:18px;height:18px;color:var(--blue)}.prompt-text{font:14px/1.85 var(--font);margin:0;white-space:pre-wrap;overflow-wrap:anywhere;color:var(--ink);flex:1;max-height:360px;overflow:auto;padding-right:4px}.preview-actions{margin-top:23px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}.primary{background:var(--blue);color:white;font-weight:650;border-radius:8px;min-height:46px;padding:11px 20px;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:10px;line-height:1.5}.primary:hover{background:#183aa8}.primary svg{width:18px;height:18px}.preview .primary{background:var(--orange);color:#332418}.preview .primary:hover{background:#ffad83}.preview small{font-size:12px;color:var(--muted)}.help-note{font-size:13px;margin:15px 0 0;color:var(--muted)}.install-list{padding:0;list-style:none;margin:21px 0 0;counter-reset:install}.install-list li{counter-increment:install;position:relative;padding-left:30px;margin-bottom:18px;font-size:14px}.install-list li:before{content:counter(install);position:absolute;left:0;top:1px;width:21px;height:21px;border-radius:50%;background:var(--sky);color:var(--blue);text-align:center;font-size:12px;line-height:21px}.path{display:block;font-family:Consolas,monospace;background:#edf3f8;font-size:13px;overflow-wrap:anywhere;padding:10px 12px;border-radius:5px;margin-top:8px;user-select:all}.client{width:100%;max-width:220px;padding:9px 12px;border:1px solid #9bacba;border-radius:8px;background:white;color:var(--ink)}.mode{border:0;padding:0;margin:4px 0 16px}.mode legend{font-size:14px;font-weight:650;margin-bottom:9px}.switch{display:flex;gap:8px}.switch label{flex:1;position:relative;cursor:pointer}.switch input{position:absolute;opacity:0;width:1px;height:1px}.switch span{display:block;border:1px solid #9bacba;border-radius:8px;text-align:center;padding:10px 6px;font-size:13px}.switch input:checked+span{border-color:var(--blue);color:var(--blue);background:#edf2ff}.switch input:focus-visible+span{outline:3px solid var(--blue);outline-offset:3px}.notes{display:flex;gap:25px;align-items:center;justify-content:space-between;padding:21px 4px 26px;flex-wrap:wrap}.notes p{margin:0;color:var(--muted);font-size:13px}.notes p strong{color:var(--ink);font-weight:650}.tools{padding:10px 0;border-top:1px solid #b7c9d7;border-bottom:1px solid #b7c9d7;margin:0 4px}.tools>summary{list-style:none;display:flex;align-items:center;justify-content:space-between;gap:15px;cursor:pointer;min-height:72px;font-size:16px;font-weight:650}.tools>summary::-webkit-details-marker{display:none}.tools>summary svg{width:20px;height:20px;transition:transform .2s ease-out}.tools[open]>summary svg{transform:rotate(45deg)}.tools-body{padding:0 0 27px;max-width:800px}.tools-body p{font-size:14px;margin:0 0 17px;color:var(--muted)}.tool-options{display:flex;flex-wrap:wrap;align-items:center;gap:15px;margin:18px 0}.tool-options select{max-width:200px}.tool-options label{font-size:14px;display:flex;align-items:center;gap:8px}.tool-options input{accent-color:var(--blue);width:17px;height:17px}.config-links{display:flex;gap:12px;flex-wrap:wrap}.config-links a{font-size:14px;padding:8px 0}.tools details{margin:18px 0;font-size:14px}.tools details summary{cursor:pointer}.tools details p{margin:10px 0}.footer{padding-top:23px;padding-bottom:30px;display:flex;justify-content:space-between;gap:18px;font-size:12px;color:var(--muted)}.footer a{color:var(--muted)}.toast{position:fixed;bottom:25px;left:50%;transform:translateX(-50%);max-width:calc(100% - 32px);background:var(--ink);color:white;padding:13px 20px;border-radius:10px;box-shadow:0 8px 24px rgba(28,44,59,.2);font-size:14px;z-index:10}.toast:empty{display:none}.print-guide{display:none}.noscript{padding:20px;background:#fff0e8}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.tools>summary svg{transition:none}}@media(min-width:1600px){.wrap{max-width:1220px}.hero{padding-top:45px;padding-bottom:45px}.entry{padding:36px 40px}.preview{padding:32px 40px}}@media(max-width:760px){.wrap{padding-left:20px;padding-right:20px}.hero{grid-template-columns:1fr;gap:0;padding-top:10px;padding-bottom:27px}h1{font-size:40px}.hero p{font-size:15px}.dialog-demo{display:none}header.wrap{padding-top:20px;padding-bottom:24px}.brand{font-size:17px}.head-link{font-size:12px}.tabs{padding:0 16px;gap:22px}.tabs button{font-size:15px;min-height:62px;gap:7px}.workspace{grid-template-columns:1fr}.entry{padding:25px 22px}.preview{padding:23px 22px}.prompt-text{max-height:none}.fields{gap:12px}.notes{display:block;padding:17px 4px}.notes p{margin:7px 0}.footer{flex-direction:column;gap:6px}.tools>summary{font-size:15px}.workbench{border-radius:16px}h2{font-size:22px}}@media(max-width:370px){.wrap{padding-left:14px;padding-right:14px}.tabs{gap:16px;padding:0 12px}.tabs button{font-size:14px;gap:5px}.fields{grid-template-columns:1fr;gap:0}.entry,.preview{padding:22px 18px}h1{font-size:35px}}@page{size:A4;margin:18mm}@media print{body{background:white;font-size:11pt}header,main,footer,.toast{display:none!important}.print-guide{display:block!important}.print-guide h1{font-size:27pt}.print-guide h2{font-size:16pt;margin-top:25px}.print-guide p{line-height:1.8}.print-guide pre{font:10pt/1.7 var(--font);white-space:pre-wrap;background:#edf3f8;padding:16px}.print-guide small{font-size:9pt;color:var(--muted)}}
+</style>
+</head>
+<body>
+<header class="wrap">
+<a class="brand" href="#start" aria-label="求职小助手，开始使用"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M11 9V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v3M4 16h24M13 16v4h6v-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="3" y="9" width="26" height="19" rx="5" stroke="currentColor" stroke-width="2"/></svg>求职小助手</a>
+<a class="head-link" href="entry-level-job-application.zip" download>下载技能安装包</a>
+</header>
+<main class="wrap">
+<section class="hero" aria-label="教程介绍">
+<div><h1>你来选方向，<br>它来跑流程。</h1><p>找岗位、填简历、传附件。<br>先写一句需求，发给装好技能的 Agent。</p></div>
+<div class="dialog-demo" aria-label="对话示例"><div class="message">帮我找上海的初级工程师岗位。</div><div class="reply"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m4 12 5 5L20 6" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>先看官网，再核对要求。</div><small>对话示意，不是真实搜索结果</small></div>
+</section>
+<noscript><p class="noscript">交互教程需要启用 JavaScript。也可以打开 <a href="guide.pdf">简版速查 PDF</a>，或直接使用 <a href="prompts/01-search-only.txt">搜索话术</a>。</p></noscript>
+<section class="workbench" id="start" aria-label="选择操作并生成话术">
+<div class="tabs" role="tablist" aria-label="你要先做什么">
+<button type="button" id="tab-install" role="tab" aria-selected="false" aria-controls="install" tabindex="-1" data-stage="install"><span>1</span>安装技能</button>
+<button type="button" id="tab-search" role="tab" aria-selected="true" aria-controls="search" tabindex="0" data-stage="search"><span>2</span>找岗位</button>
+<button type="button" id="tab-apply" role="tab" aria-selected="false" aria-controls="apply" tabindex="-1" data-stage="apply"><span>3</span>去申请</button>
+</div>
+<div id="install" class="workspace" role="tabpanel" aria-labelledby="tab-install" hidden>
+<div class="entry"><h2>装一次，以后直接用。</h2><p class="hint">先选你正在使用的客户端。</p>
+<label for="client" class="field">我的客户端</label><select id="client" class="client"><option value="codex">Codex</option><option value="claude">Claude Code</option><option value="other">其他 Agent</option></select>
+<ol class="install-list"><li><a href="entry-level-job-application.zip" download>下载技能 ZIP</a>，完整解压。</li><li id="install-target">把整个技能文件夹放在这里：<code class="path" id="install-path"></code></li><li>打开技能文件夹，直接看见 <strong>SKILL.md</strong> 就对了。子目录也要保留。</li></ol><p class="help-note" id="client-note"></p></div>
+<aside class="preview" aria-label="安装确认话术"><div class="preview-title">安装后，发这句确认一下</div><pre class="prompt-text" id="install-prompt"></pre><div class="preview-actions"><button class="primary" data-copy="install-prompt">复制给 Agent</button></div><p class="help-note">已装好？点上方“找岗位”继续。</p></aside>
+</div>
+<div id="search" class="workspace" role="tabpanel" aria-labelledby="tab-search">
+<div class="entry"><h2>先找几份，看看合不合适。</h2><p class="hint">这一步只搜索，不上传简历、不投递。</p>
+<div class="fields"><label class="field">想找什么岗位<input id="role" maxlength="160" placeholder="例如：初级工程师" autocomplete="off"></label><label class="field">想去哪些城市<input id="cities" maxlength="160" placeholder="例如：上海、杭州" autocomplete="off"></label></div>
+<button class="quiet-button" id="example" type="button">填个示例看看</button>
+<details class="extra"><summary>补充简历位置 <span class="inline-note">· 也可以稍后告诉 Agent</span></summary><label class="field">简历文件路径<input id="resume" maxlength="500" placeholder="例如：D:/job-private/resume.pdf" autocomplete="off" spellcheck="false"></label><label class="field">附件文件夹 <span class="inline-note">可选</span><input id="attachments" maxlength="500" placeholder="例如：D:/job-private/attachments" autocomplete="off" spellcheck="false"></label><p class="help-note">路径要能被 Agent 访问；本页不读取文件。</p></details>
+</div>
+<aside class="preview" aria-label="搜索话术预览"><div class="preview-title"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4H3V6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>准备发给 Agent 的消息</div><pre id="search-prompt" class="prompt-text"></pre><div class="preview-actions"><button class="primary" data-copy="search-prompt">复制给 Agent <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M15 5V3H3v13h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><small>填好信息，消息会跟着变。</small></div></aside>
+</div>
+<div id="apply" class="workspace" role="tabpanel" aria-labelledby="tab-apply" hidden>
+<div class="entry"><h2>选好岗位，再往前一步。</h2><p class="hint">这里只生成授权话术，不会直接投递。</p>
+<label class="field">这次申请哪些岗位<input id="scope" maxlength="350" placeholder="公司＋岗位，或写“刚确认的两份岗位”" autocomplete="off"></label>
+<fieldset class="mode"><legend>填完之后怎么做？</legend><div class="switch"><label><input type="radio" name="submit-mode" value="draft" checked><span>先给我看，不提交</span></label><label><input type="radio" name="submit-mode" value="submit"><span>按授权直接提交</span></label></div></fieldset>
+<details class="extra"><summary>附件和投递数量</summary><label class="field">允许上传的附件<input id="allow-files" maxlength="350" placeholder="例如：中文简历、作品集" autocomplete="off"></label><label class="field">本轮最多处理<select id="limit"><option value="1">1 份</option><option value="3">3 份</option><option value="5">5 份</option></select></label></details>
+</div><aside class="preview" aria-label="申请话术预览"><div class="preview-title" id="apply-status">当前：只填草稿，等你确认</div><pre id="apply-prompt" class="prompt-text"></pre><div class="preview-actions"><button class="primary" data-copy="apply-prompt">复制给 Agent</button></div><p class="help-note">验证码和测评由本人处理。看到官网回执，才算提交成功。</p></aside>
+</div>
+</section>
+<div class="notes"><p><strong>只走官网</strong>　或企业自己的招聘系统</p><p><strong>随时能停</strong>　对 Agent 说“暂停，保存进度”</p></div>
+<details class="tools">
+<summary>提示缺工具？再看这里。<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></summary>
+<div class="tools-body"><p>已有浏览器工具就不用装。缺网页操作能力时用 Playwright；确需操作 Windows 原生窗口，再加 Windows-MCP。</p>
+<div class="tool-options"><label for="config-client">配置给谁用</label><select class="client" id="config-client"><option value="codex">Codex</option><option value="claude">Claude Code</option><option value="other">其他 Agent</option></select></div>
+<div class="config-links" id="config-links"></div>
+<details><summary>安装前看这几句</summary><p>配置要合并，不能覆盖。需要 Node.js / npx；Windows-MCP 还需要 uvx 与匹配的 Python。固定版本、真实路径和安装方式见 <a href="examples/README.md">配置说明</a>，也可让 Agent 读取安装包里的 references/mcp.md。先检查已有工具，再按你的授权安装。</p><p>换客户端或改了配置，记得重新加载。文件在，不代表工具已连接。</p></details>
+<a href="examples/README.md">完整配置说明</a></div>
+</details>
+</main>
+<footer class="wrap footer"><span>本页不上传资料。复制后，再发给你的 Agent。</span><a href="https://github.com/zhaoheqing92-netizen/entry-level-job-application-skill" target="_blank" rel="noopener noreferrer">查看开源项目</a></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<section class="print-guide">
+<h1>求职小助手<br>一页上手</h1><p>交互版请打开 guide.html：选操作、填方向、复制给 Agent。</p>
+<h2>1. 完整安装</h2><p>解压 entry-level-job-application.zip。技能文件夹内直接看见 SKILL.md，并保留全部子目录。Codex 用户级目录为 ~/.agents/skills/；Claude Code 为 ~/.claude/skills/。自定义目录按本机设置。</p>
+<h2>2. 先只搜索</h2><pre>使用 entry-level-job-application 技能。
+根据我的简历，找【城市】的【目标初级岗位】。
+最多给我 3 份匹配岗位及官网直达链接。
+只搜索，不上传、不投递。缺少信息时集中问我。</pre>
+<h2>3. 确认后再申请</h2><p>告诉 Agent：允许申请哪些公司和岗位、允许上传什么、最多几份，以及“只填草稿”还是“允许提交”。非必填只写真实优势，只勾选提交必需且适用的条款。</p>
+<p>验证码、测评由本人处理；官网确认后才记录成功。需要停下来，直接说“暂停，保存进度”。</p>
+<h2>缺工具时</h2><p>先复用已有工具。需要时再看 examples/README.md，按客户端合并配置，不能覆盖原配置。简历和申请记录放在私有文件夹里。</p>
+<small>本页是速查单，配置与示例不代表已在所有客户端或招聘网站实测。教程不执行投递，也不包含模型与其他服务费用。</small>
+</section>
+<script>
+(function(){
+'use strict';
+var $=function(id){return document.getElementById(id);};
+var value=function(id,fallback){return $(id).value.trim()||fallback;};
+var timer;
+function notify(message){$('toast').textContent=message;clearTimeout(timer);timer=setTimeout(function(){$('toast').textContent='';},5500);}
+function searchPrompt(){
+var lines=['使用 entry-level-job-application 技能。','帮我找'+value('cities','【城市】')+'的'+value('role','【目标初级岗位】')+'。'];
+if(value('resume',''))lines.push('简历在：'+value('resume',''));
+else lines.push('先读取我提供的简历；如果还没收到，先问我要。');
+if(value('attachments',''))lines.push('附件目录：'+value('attachments',''));
+lines.push('优先核对企业官网，最多给我 3 份匹配岗位和官网直达链接，标出资格缺口。','这次只搜索，不注册、不上传、不提交。','复用现有工具；确实缺少的信息，集中问我。');
+$('search-prompt').textContent=lines.join('\n');
+}
+function applyPrompt(){
+var submit=document.querySelector('input[name="submit-mode"]:checked').value==='submit';
+$('apply-status').textContent=submit?'当前：已选择生成提交授权':'当前：只填草稿，等你确认';
+$('apply-prompt').textContent=[
+'使用 entry-level-job-application 技能，沿用已确认的资料。',
+'本轮范围：'+value('scope','【公司和岗位】')+'；最多 '+$('limit').value+' 份。',
+'允许上传：'+value('allow-files','【请写明允许上传的附件】')+'。',
+submit?'我授权在上述范围内填写、上传并提交。':'只填写草稿和上传上述附件，给我检查，不提交。',
+'只走官网或官方招聘系统，跳过已申请岗位。非必填只写真实优势，只勾选提交必需且适用的条款。',
+'新账号、验证码、测评和未确认的事实交给我；不要猜。只有官网回执确认后，才记录提交成功。',
+'进度保存在我指定的私有目录；目录不明确时先问我。我说“暂停”就停止后续动作并保存进度。'
+].join('\n');
+}
+function installPrompt(){
+var c=$('client').value;
+var paths={codex:'~/.agents/skills/entry-level-job-application/',claude:'~/.claude/skills/entry-level-job-application/',other:'按客户端的技能导入入口或配置目录安装'};
+$('install-path').textContent=paths[c];
+$('client-note').textContent=c==='other'?'安装包内的 references/clients.md 有适配参考。云端会话不一定能访问本地文件。':'~ 是当前用户的主目录。有自定义目录就沿用原设置；没发现技能时，刷新或新建会话。';
+$('install-prompt').textContent='请确认你能发现并读取 entry-level-job-application 技能。\n告诉我当前能完成哪些操作，缺少什么工具。\n这一步不搜索、不安装、不修改配置。';
+}
+function setStage(stage,focus){
+document.querySelectorAll('[data-stage]').forEach(function(b){var selected=b.dataset.stage===stage;b.setAttribute('aria-selected',String(selected));b.tabIndex=selected?0:-1;$(b.dataset.stage).hidden=!selected;});
+if(focus)$('tab-'+stage).focus();
+$('toast').textContent='';
+}
+document.querySelectorAll('[data-stage]').forEach(function(b){b.addEventListener('click',function(){setStage(b.dataset.stage,false);});b.addEventListener('keydown',function(e){var stages=['install','search','apply'];var i=stages.indexOf(b.dataset.stage);if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();setStage(stages[(i+(e.key==='ArrowRight'?1:2))%3],true);}else if(e.key==='Home'||e.key==='End'){e.preventDefault();setStage(stages[e.key==='Home'?0:2],true);}});});
+$('search').addEventListener('input',searchPrompt);
+$('apply').addEventListener('input',applyPrompt);
+$('client').addEventListener('change',installPrompt);
+$('example').addEventListener('click',function(){$('role').value='初级工程师';$('cities').value='上海、杭州';searchPrompt();notify('已填入示例，可改成你的目标。');});
+document.querySelectorAll('[data-copy]').forEach(function(button){
+button.addEventListener('click',async function(){
+var node=$(button.dataset.copy);var text=node.textContent;
+try{if(!navigator.clipboard)throw new Error('Clipboard unavailable');await navigator.clipboard.writeText(text);notify(text.indexOf('【')>=0?'已复制。把【】内容补齐，再发给 Agent。':'已复制，粘贴给你的 Agent 就好。');}
+catch(error){var selection=window.getSelection();var range=document.createRange();range.selectNodeContents(node);selection.removeAllRanges();selection.addRange(range);notify('文字已选中。电脑按 Ctrl+C / ⌘C，手机请用复制菜单。');}
+});
+});
+function configLinks(){
+var c=$('config-client').value;var container=$('config-links');container.replaceChildren();
+var rows=c==='other'?[['查看适配说明','examples/README.md']]:[['浏览器配置','examples/'+c+'-playwright.example.'+(c==='codex'?'toml':'json')],['Windows 桌面配置（可选）','examples/'+c+'-windows-optional.example.'+(c==='codex'?'toml':'json')]];
+rows.forEach(function(row){var a=document.createElement('a');a.textContent=row[0];a.href=row[1];if(c!=='other')a.download=row[1].split('/').pop();container.append(a);});
+}
+$('config-client').addEventListener('change',configLinks);
+searchPrompt();applyPrompt();installPrompt();configLinks();
+})();
+</script>
+</body></html>
