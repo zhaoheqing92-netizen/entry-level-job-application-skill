@@ -1,0 +1,18 @@
+[
+  {
+    "path": "dist/entry-level-job-application-2026-11-10-search-quality.zip",
+    "files": 14,
+    "bytes": 47222,
+    "sha256": "6c2d63ec8d58e8de3e41e709abd47125919034d665fc88d7278aa65d9c1dd80d",
+    "source_match": true,
+    "private_marker_scan": "passed"
+  },
+  {
+    "path": "downloads/entry-level-job-application-with-guide.zip",
+    "files": 24,
+    "bytes": 363554,
+    "sha256": "34ca8520cc080c7d3e817beb8b55d4e20871b9f927a35883accf9843b3833e23",
+    "source_match": true,
+    "private_marker_scan": "passed"
+  }
+]

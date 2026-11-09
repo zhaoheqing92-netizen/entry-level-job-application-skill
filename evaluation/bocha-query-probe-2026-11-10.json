@@ -1,0 +1,265 @@
+{
+  "probeDate": "2026-11-10",
+  "tool": "mcp__bocha__bocha_web_search",
+  "parameters": {
+    "freshness": "noLimit",
+    "count": 5
+  },
+  "searchCalls": 4,
+  "execution": "Four independent searches launched concurrently; elapsed values are single-call wall times, not serial total time.",
+  "judgingRule": "Judgment uses returned title, URL and summary only. Obvious off-topic means a non-recruiting page or no matching core job domain in the returned text. Experience, cohort and freshness mismatches are stated separately and do not inflate off-topic counts.",
+  "dateRule": "Dates are search-tool publication metadata, not verified employer posting dates. Older-than-one-year uses 2025-11-10 cutoff. Explicit expired ranges or closed labels are recorded separately in assessments.",
+  "cases": [
+    {
+      "id": "A",
+      "query": "杭州 数据中心 液冷 测试 初级 2025届 官网 招聘",
+      "toolElapsedMs": 46019,
+      "returnedCount": 5,
+      "obviousOffTopicCount": 3,
+      "sourceMix": {
+        "employer": 2,
+        "university": 0,
+        "aggregator": 3
+      },
+      "metadataOlderThanOneYearCount": 4,
+      "results": [
+        {
+          "rank": 1,
+          "title": "数据中心液冷系列_杭州云酷智能科技有限公司",
+          "url": "https://www.keencool.com/chanpinzhongxin/shujuzhongxin/",
+          "publishedDateAsReturned": "2024-07-22T17:03:05+08:00",
+          "sourceType": "employer",
+          "relevance": "off_topic",
+          "assessment": "产品介绍页，未显示招聘岗位。"
+        },
+        {
+          "rank": 2,
+          "title": "液冷工程师-莲花控股股份有限公司",
+          "url": "https://www.mylotushealth.com/JobPosting_Detail_1/5.html",
+          "publishedDateAsReturned": "2026-07-08T11:15:12+08:00",
+          "sourceType": "employer",
+          "relevance": "related",
+          "assessment": "杭州液冷运维岗位，但摘要要求五年以上经验，未证明初级或2025届适配。"
+        },
+        {
+          "rank": 3,
+          "title": "杭州仪器仪表招聘",
+          "url": "https://m.yingjiesheng.com/zhuanye/yiqiyibiao/hangzhou/",
+          "publishedDateAsReturned": "2025-02-12T08:00:00+08:00",
+          "sourceType": "aggregator",
+          "relevance": "off_topic",
+          "assessment": "仪器仪表汇总，摘要没有液冷测试岗位。"
+        },
+        {
+          "rank": 4,
+          "title": "杭州热工测试技术招聘人才信息,最新招聘,求职 - 化工英才网",
+          "url": "http://kzsny.xny.chenhr.com/hangzhou/regongceshijishu/?p=3",
+          "publishedDateAsReturned": "2025-02-07T20:28:35+08:00",
+          "sourceType": "aggregator",
+          "relevance": "off_topic",
+          "assessment": "泛热工测试汇总，摘要为销售、检修、自控及费控等，未显示液冷测试。"
+        },
+        {
+          "rank": 5,
+          "title": "「数据中心暖通检测工程师(液冷)招聘」_中测信通招聘-BOSS直聘",
+          "url": "https://www.zhipin.com/job_detail/f6c299c28af4e6cf1Hx92N2_GFRS.html",
+          "publishedDateAsReturned": "2024-11-29T20:49:10+08:00",
+          "sourceType": "aggregator",
+          "relevance": "related",
+          "assessment": "数据中心液冷检测岗位，但摘要要求三年以上暖通经验和半年液冷经验；杭州位置未获摘要确认。"
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "query": "杭州 液冷 测试 招聘",
+      "toolElapsedMs": 37610,
+      "returnedCount": 5,
+      "obviousOffTopicCount": 5,
+      "sourceMix": {
+        "employer": 0,
+        "university": 0,
+        "aggregator": 5
+      },
+      "metadataOlderThanOneYearCount": 5,
+      "results": [
+        {
+          "rank": 1,
+          "title": "杭州余杭技术测试招聘_技术测试招聘网_技术测试招聘信息 - 杭州58同城",
+          "url": "https://hz.58.com/yuhang/jishucsh/",
+          "publishedDateAsReturned": "2024-08-27T22:11:44+08:00",
+          "sourceType": "aggregator",
+          "relevance": "off_topic",
+          "assessment": "泛技术测试页混入软件测试、文员、店员等，未显示液冷测试岗位。"
+        },
+        {
+          "rank": 2,
+          "title": "杭州热工测试技术招聘人才信息,最新招聘,求职 - 化工英才网",
+          "url": "http://kzsny.xny.chenhr.com/hangzhou/regongceshijishu/?p=3",
+          "publishedDateAsReturned": "2025-02-07T20:28:35+08:00",
+          "sourceType": "aggregator",
+          "relevance": "off_topic",
+          "assessment": "泛热工测试汇总，摘要未显示液冷测试。"
+        },
+        {
+          "rank": 3,
+          "title": "浙江液压应用工程师-应届毕业生招聘_杭州流控机器制造有限公司招聘液压应用工程师-应届毕业生_一览·液压英才网",
+          "url": "http://yy.job1001.com/jobs/52891962.html",
+          "publishedDateAsReturned": "2022-08-18T09:50:55+08:00",
+          "sourceType": "aggregator",
+          "relevance": "off_topic",
+          "assessment": "液压应用调试岗位，与液冷测试方向不同。"
+        },
+        {
+          "rank": 4,
+          "title": "杭州家居/室内设计/装潢行业软件测试招聘_软件测试招聘网_软件测试招聘信息 - 杭州58同城",
+          "url": "http://hangzhou.58.com/ruanjiancsh/pve_5363_271/",
+          "publishedDateAsReturned": "2024-11-14T19:18:18+08:00",
+          "sourceType": "aggregator",
+          "relevance": "off_topic",
+          "assessment": "室内装潢软件测试汇总，摘要未显示液冷测试。"
+        },
+        {
+          "rank": 5,
+          "title": "「杭州食品液相检测实验员招聘信息」-BOSS直聘",
+          "url": "https://www.zhipin.com/zhaopin/df6a2325a27a633303Z509i4Fg~~/",
+          "publishedDateAsReturned": "2024-10-12T08:00:00+08:00",
+          "sourceType": "aggregator",
+          "relevance": "off_topic",
+          "assessment": "食品液相检测入口混入基因检测、软件和销售岗位，未显示液冷测试。"
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "query": "上海 暖通 初级 工程师 招聘 官网 2025届",
+      "toolElapsedMs": 42030,
+      "returnedCount": 5,
+      "obviousOffTopicCount": 0,
+      "sourceMix": {
+        "employer": 0,
+        "university": 0,
+        "aggregator": 5
+      },
+      "metadataOlderThanOneYearCount": 5,
+      "results": [
+        {
+          "rank": 1,
+          "title": "「上海暖通工程师招聘」0-20人-2025年上海暖通工程师人才招聘信息 - BOSS直聘",
+          "url": "https://www.zhipin.com/c101020100-p220215/s_301/",
+          "publishedDateAsReturned": "2025-01-25T13:03:50+08:00",
+          "sourceType": "aggregator",
+          "relevance": "related",
+          "assessment": "上海暖通岗位汇总，摘要有1至3年及5至10年要求，未证明2025届或初级适配。"
+        },
+        {
+          "rank": 2,
+          "title": "【上海暖通客服工程师招聘网_2025年上海暖通客服工程师招聘信息】-上海猎聘",
+          "url": "https://m.liepin.com/city-sh/zpntkfgcs8s1o/",
+          "publishedDateAsReturned": "2025-08-27T08:00:00+08:00",
+          "sourceType": "aggregator",
+          "relevance": "related",
+          "assessment": "上海暖通岗位，摘要要求三年以上经验。"
+        },
+        {
+          "rank": 3,
+          "title": "上海招聘暖通工程师,有维修相关工作经验最优,0经验可带主要银行,商场",
+          "url": "https://www.yupao.com/zhaogong/312365233.html",
+          "publishedDateAsReturned": "2025-09-11T03:54:45+08:00",
+          "sourceType": "aggregator",
+          "relevance": "related",
+          "assessment": "上海暖通维修岗位，摘要说明零经验可带；未证明招聘当前有效。"
+        },
+        {
+          "rank": 4,
+          "title": "上海暖通工程师招聘_上海暖通工程师2025年招聘信息汇总-高校人才网高才网",
+          "url": "http://www.gaoxiaojob.com/hotword/dixu148506",
+          "publishedDateAsReturned": "2025-01-22T08:00:00+08:00",
+          "sourceType": "aggregator",
+          "relevance": "related",
+          "assessment": "上海暖通岗位汇总，2022至2024年条目在摘要中均显示已下线。"
+        },
+        {
+          "rank": 5,
+          "title": "上海上大建筑设计院有限公司招聘暖通工程师-建筑英才网",
+          "url": "http://www.buildhr.com/job/mSWeo",
+          "publishedDateAsReturned": "2025-02-08T15:37:08+08:00",
+          "sourceType": "aggregator",
+          "relevance": "related",
+          "assessment": "上海暖通岗位，摘要要求丰富经验及注册证加高级职称；招聘区间截至2025-03-27。"
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "query": "上海 暖通 助理工程师 招聘",
+      "toolElapsedMs": 51777,
+      "returnedCount": 5,
+      "obviousOffTopicCount": 0,
+      "sourceMix": {
+        "employer": 0,
+        "university": 0,
+        "aggregator": 5
+      },
+      "metadataOlderThanOneYearCount": 5,
+      "results": [
+        {
+          "rank": 1,
+          "title": "暖通助理工程师",
+          "url": "http://m.buildhr.com/jobs/gcsg/huhehaote/XosUo_j.html",
+          "publishedDateAsReturned": "2024-12-24T08:00:00+08:00",
+          "sourceType": "aggregator",
+          "relevance": "related",
+          "assessment": "上海普陀暖通助理岗位，要求一年以上经验，招聘区间截至2025-12-23。"
+        },
+        {
+          "rank": 2,
+          "title": "【上海市】【招聘助理暖通工程师,上海依冬暖通设备工程有限公司招聘】_中国空调人才网",
+          "url": "http://sn.baidajob.com/invite-2873844.html",
+          "publishedDateAsReturned": "2025-01-03T12:30:07+08:00",
+          "sourceType": "aggregator",
+          "relevance": "related",
+          "assessment": "上海助理暖通岗位，摘要要求可适应江浙沪常驻工程；未证明当前有效。"
+        },
+        {
+          "rank": 3,
+          "title": "上海工程安全招聘 - 建筑英才网",
+          "url": "http://www.buildhr.com/jobs/hjgc/shanghai/gongchenganquan/",
+          "publishedDateAsReturned": "2025-02-05T00:43:41+08:00",
+          "sourceType": "aggregator",
+          "relevance": "related",
+          "assessment": "页标题为工程安全，但摘要为上海大境助理暖通岗位；与本组第5条同雇主同岗位。"
+        },
+        {
+          "rank": 4,
+          "title": "上海译展工程技术有限公司招聘助理暖通工程师_上海实习招聘",
+          "url": "http://archiverm.yingjiesheng.com/job-004-737-185.html",
+          "publishedDateAsReturned": "2020-08-28T18:09:10+08:00",
+          "sourceType": "aggregator",
+          "relevance": "related",
+          "assessment": "上海助理暖通实习岗位转载，原来源标示大学，但返回URL是聚合站；元数据日期为2020年。"
+        },
+        {
+          "rank": 5,
+          "title": "助理暖通工程师",
+          "url": "http://m.buildhr.com/jobs/gcsg/huhehaote/XvsEA_j.html",
+          "publishedDateAsReturned": "2025-01-24T08:00:00+08:00",
+          "sourceType": "aggregator",
+          "relevance": "related",
+          "assessment": "上海大境助理暖通岗位，摘要工作经验不限，招聘区间截至2025-05-30；与第3条重复线索。"
+        }
+      ]
+    }
+  ],
+  "observations": [
+    "A versus B: A returned two employer domains and two liquid-cooling job-related results; B returned no clear liquid-cooling test role in five summaries. Shortening lost important domain signal in this sample.",
+    "C versus D: Both returned five aggregator URLs. D had five assistant-HVAC role-related summaries, but two likely duplicate the same employer/role and one is dated 2020. C contained mixed seniority and closed listings.",
+    "Timing has one observation per query under concurrent execution and is not a repeatable performance comparison.",
+    "Query pairs change semantic constraints and role wording as well as length; this is a bounded observation, not a controlled test of query length alone."
+  ],
+  "limits": [
+    "No destination pages fetched; no verification of current opening status, full recall, employer authenticity or candidate suitability.",
+    "No application, login, contact or outbound message performed.",
+    "Sanitized artifact retains result titles, URLs, returned dates and concise judgments; raw summaries, contact details and credentials omitted."
+  ]
+}
