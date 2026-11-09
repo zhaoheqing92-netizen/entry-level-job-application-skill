@@ -25,6 +25,16 @@
 
 ![交互教程预览](docs/starter-kit/preview.png)
 
+## 领取后，Agent 会怎样教你使用
+
+履约或安装后，Agent 加载本技能时会直接介绍能做什么、需要哪些资料、搜索/草稿/授权提交三种用法，并给出可复制的例句和可选教程入口。正常做任务时只给简短提示；已介绍过或继续上次任务时不重复。即使平台没有交付 HTML 附件，也可以直接在聊天中开始。
+
+如果 Agent 只完成了下载、没有加载技能，把这句接在履约指令后，或单独发给它：
+
+> 履约完成后，请加载 entry-level-job-application，按其中的首次使用说明告诉我怎么开始，并指出我能访问的教程入口。
+
+这段说明来自技能本身，不是平台安装钩子。更新本仓库不会自动替换 SkillPay 的旧商品文件，仍须上传新版并核对实际交付。
+
 ## 快速开始
 
 1. 将完整的 [skills/entry-level-job-application](skills/entry-level-job-application) 文件夹放入当前 Agent 的技能目录，保留其中全部子目录，包括 `references/`、`scripts/`、`assets/` 和 `agents/`。各宿主路径见[安装与适配](skills/entry-level-job-application/references/clients.md)。

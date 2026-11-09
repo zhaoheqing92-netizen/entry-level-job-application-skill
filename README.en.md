@@ -13,6 +13,12 @@ An Agent skill that turns a resume, career goals, and a clear authorization scop
 
 Both channels provide the same skill. The Chinese guide and configuration examples are also publicly available for free. Purchasing supports the author and provides the packaged files through the platform; there are no paid-only features. Bring a compatible Agent; model costs are separate. Human application services and hiring guarantees are not included.
 
+## After delivery or installation
+
+When the Agent loads this skill after delivery, it explains capabilities, the minimum information needed, three ready-to-use prompts, and the optional guide. Specific tasks get a brief introduction instead; continuing a task does not repeat it. The instructions are self-contained even when no HTML attachment is delivered.
+
+If your Agent only downloads the files, say: “After delivery, load entry-level-job-application and explain how I can start, including a guide link I can actually access.” This is a skill instruction, not a platform installation hook. Replace the marketplace delivery file separately and verify what customers receive.
+
 ## Get started
 
 Copy the complete [skills/entry-level-job-application](skills/entry-level-job-application) folder into your Agent's skill directory, including its references, scripts, assets, and metadata. See the [client guide](skills/entry-level-job-application/references/clients.md) for documented host-specific paths and invocation syntax. The operational skill and detailed references are currently in Chinese.
