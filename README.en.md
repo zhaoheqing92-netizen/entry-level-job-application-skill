@@ -4,7 +4,7 @@
 
 An Agent skill that turns a resume, career goals, and a clear authorization scope into verified job opportunities and official applications. It supports search, draft preparation, authorized submission, and recovery after interruptions. It is not a standalone bot or a hiring guarantee.
 
-Try the [interactive Chinese tutorial](docs/starter-kit/README.md): download the repository and open `docs/starter-kit/guide.html` in a browser. No frontend build step is required.
+[Download the customer bundle](downloads/entry-level-job-application-with-guide.zip) for the skill plus a Chinese guide. Install the skill and tell your Agent what you need. The optional `guide.html` explains setup and helps compose prompts; it does not search or apply, and you can skip it. Older skill-only ZIPs do not include the guide. Marketplace delivery files must be replaced separately.
 
 ## Get started
 

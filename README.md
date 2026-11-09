@@ -8,7 +8,13 @@
 
 ## 交互教程
 
-第一次使用，可以先打开[交互图文教程](docs/starter-kit/README.md)：选择操作，填岗位和城市，复制给 Agent。下载仓库后，用浏览器打开 `docs/starter-kit/guide.html`；无需构建或安装前端依赖。
+**[下载客户完整包（技能＋中文教程）](downloads/entry-level-job-application-with-guide.zip)**。解压后先看 `先看这里.txt`。
+
+**正常用法：装好技能，直接告诉 Agent 想找什么工作。**
+
+`guide.html` 是[可选的使用教程](docs/starter-kit/README.md)，帮助新用户看安装步骤、生成可复制的需求话术。它自己不会搜索或投递；会用的用户直接跳过，不必先填网页。用 Edge 或 Chrome 打开即可，无需安装前端依赖。
+
+客户完整包内有 `guide.html`；旧的单独技能 ZIP 不含教程。上架平台不会自动替换旧文件，客户实际收到的内容以平台交付包为准。
 
 ![交互教程预览](docs/starter-kit/preview.png)
 

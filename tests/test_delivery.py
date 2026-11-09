@@ -39,6 +39,40 @@ class DeliveryTests(unittest.TestCase):
                 builder.package(output)
             self.assertEqual(output.read_bytes(), before)
 
+    def test_customer_package_includes_optional_guide_without_nested_installer(self):
+        from html.parser import HTMLParser
+
+        class Links(HTMLParser):
+            def __init__(self):
+                super().__init__()
+                self.links = []
+
+            def handle_starttag(self, tag, attrs):
+                self.links.extend(value for key, value in attrs if key in ("href", "src"))
+
+        builder = module("package_skill")
+        with tempfile.TemporaryDirectory(prefix="job-customer-package-", dir=ROOT.parent) as folder:
+            output = Path(folder) / "customer.zip"
+            builder.package(output, with_guide=True)
+            with zipfile.ZipFile(output) as archive:
+                names = set(archive.namelist())
+                self.assertEqual(names, set(builder.FILES + ["LICENSE"] + builder.GUIDE_FILES + ["先看这里.txt"]))
+                self.assertFalse(any(name.endswith(".zip") for name in names))
+                self.assertIsNone(archive.testzip())
+                for name in builder.FILES:
+                    self.assertEqual(archive.read(name), (builder.SKILL / name).read_bytes())
+                guide = archive.read("guide.html").decode("utf-8")
+                self.assertIn("这是可选教程，不是投递页面", guide)
+                self.assertIn("查看安装方法", guide)
+                self.assertIn("会用的客户直接跳过", archive.read("先看这里.txt").decode("utf-8"))
+                links = Links()
+                links.feed(guide)
+                for link in links.links:
+                    if link and not link.startswith(("#", "https://", "http://")):
+                        self.assertIn(link, names)
+            with self.assertRaises(FileExistsError):
+                builder.package(output, with_guide=True)
+
 
 if __name__ == "__main__":
     unittest.main()
