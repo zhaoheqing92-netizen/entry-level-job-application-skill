@@ -1,0 +1,72 @@
+{
+  "reviewed_at": "2026-11-09T20:55:02.707810+08:00",
+  "job": {
+    "employer": "河湾工程",
+    "id": "ME-01",
+    "title": "初级热工测试员",
+    "url": "https://example.com/careers/ME-01",
+    "source": "request.md 中用户提供的离线官网快照；未联网核实",
+    "requirements": "机械本科；毕业两年内；接受无工作经验；日班；接受英文简历及可选英文求职信"
+  },
+  "attachments": [
+    {
+      "role": "resume",
+      "language": "en",
+      "source": "resume-ME-01-v1.pdf",
+      "prepared": "resume-ME-01-v1.pdf",
+      "sha256": "5548a27f0e8101bb31009d1794635d4f6a78c4610579dfc95e850bf6c8282a67",
+      "pages": 1,
+      "text_extractable": true,
+      "source_bytes_preserved": true
+    },
+    {
+      "role": "cover_letter",
+      "language": "en",
+      "source": "latest.pdf",
+      "prepared": "cover-letter-ME-01-v1.pdf",
+      "sha256": "a3c48a85f227b19ce8e8a032fcf827606bc764d9ea504d3bbedfa52772dd04dd",
+      "pages": 1,
+      "text_extractable": true,
+      "source_bytes_preserved": true
+    }
+  ],
+  "draft_v2": {
+    "page_render_visually_reviewed": true,
+    "visible_text_readable": true,
+    "fitz_extracted_characters": 0,
+    "pypdf_extracted_characters": 0,
+    "embedded_images": 1,
+    "selected": false,
+    "reason": "只有图片；改用现有可抽取文字的 ME-01 简历，原文件未修改"
+  },
+  "index_issue": "ME-01.cv 和 ME-01.cover 均指向 latest.pdf；核对正文后确认该文件仅为求职信。旧 index.json 原样保留，本报告记录本次正确映射。",
+  "visual_review": [
+    "draft-v2.pdf 第 1 页",
+    "resume-ME-01-v1.pdf 第 1 页",
+    "latest.pdf 第 1 页"
+  ],
+  "checks": [
+    "全部四份 PDF 均以 fitz 和 pypdf 抽取正文",
+    "选定附件核对姓名、简历邮箱、学历、毕业日期、岗位、300 行及个人贡献边界",
+    "选定附件页面无可见裁切、重叠、缺字，提取阅读顺序与页面一致",
+    "输出副本与来源 SHA-256 完全一致",
+    "全部原始输入与 submitted 历史文件保存前后 SHA-256 一致"
+  ],
+  "original_sha256": {
+    "draft-v2.pdf": "6f739a51c77755573a2bd7589565d880887109e240c917336cb887ca474a4e83",
+    "index.json": "50d6acbb3e686ac906de64918dfe939355521e15eaf46b314b189ea84a1b3959",
+    "latest.pdf": "a3c48a85f227b19ce8e8a032fcf827606bc764d9ea504d3bbedfa52772dd04dd",
+    "request.md": "098e3783be0f8b36dceacd7b4a423a00523a31d835286c038c4018027e503005",
+    "resume-DA-02-v1.pdf": "3dd5d7268852487113c7f92fd4966cf8943d6d7edc170254901846aaa2bfc1a4",
+    "resume-ME-01-v1.pdf": "5548a27f0e8101bb31009d1794635d4f6a78c4610579dfc95e850bf6c8282a67",
+    "submitted\\ME-00-resume.txt": "3c31e5710c963fda70c8428e8d080832d4c87d47abdf6343145c1dd351b4f9c4"
+  },
+  "not_checked": [
+    "官网实时岗位状态",
+    "官网附件大小、格式等上传限制",
+    "真实招聘系统解析或 ATS 表现",
+    "未进行 OCR"
+  ],
+  "uploaded": false,
+  "submitted": false
+}

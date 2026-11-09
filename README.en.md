@@ -46,8 +46,10 @@ For automatic applications, explicitly authorize the scope of filling, uploading
 ## How it works
 
 - Verify specific roles through employer websites or employer-linked recruitment systems. Keep evidence for personal facts and job details.
-- Check eligibility before scoring fit. Use intervals for unknown preferences; a score is not a hiring probability.
-- Save submission state before clicking and reconcile with the official record afterward. An uncertain result does not trigger another submission.
+- Check eligibility before scoring fit. Default to up to three actionable choices with reasons, gaps, and a next step; expand scoring when useful. A score is not a hiring probability.
+- Tailor the requested application content to documented experience and explain the changes. Reuse confirmed facts across similar roles.
+- Keep the original resume and distinguish attachment purpose, role, language, and version. Check both appearance and extracted text of generated or edited PDFs; disclose checks the environment cannot perform.
+- Save submission state and the material versions before clicking; reconcile with the official record afterward. Preserve submitted versions. An uncertain result does not trigger another submission.
 - Hand off personal verification and unsupported steps with a concrete next action. CAPTCHA failures share a three-attempt ceiling; stricter site and tool restrictions take precedence.
 
 Reuse capable existing tools. Automatically initialize missing Playwright MCP capability only when needed and authorized; add Windows-MCP only for necessary native Windows interaction. No persistent background service is created.
@@ -65,6 +67,6 @@ python tools/demo.py
 
 On Windows, use the interpreter's actual path if needed to avoid Store aliases. The demo uses fictional data and does not log in or submit applications.
 
-See [test coverage](TESTING.md) and the [offline demo guide](docs/demo.md). Documented configuration branches exist for Codex, Claude Code, DeepSeek Harness, and ZCode; they do not establish universal compatibility. Current evidence is local and simulated: live ATS submissions, every client integration, and marketplace purchase/delivery have not been verified.
+See [test coverage](TESTING.md), the [offline demo guide](docs/demo.md), and the [public project and user-feedback review](evaluation/competitive-review-2026-11-09.md). Documented configuration branches exist for Codex, Claude Code, DeepSeek Harness, and ZCode; they do not establish universal compatibility. Current evidence is local and simulated: live ATS submissions, every client integration, and marketplace purchase/delivery have not been verified.
 
 Keep resumes, credentials, screenshots, and application records outside this public repository. Buying the skill does not grant permission to access personal data or submit applications.

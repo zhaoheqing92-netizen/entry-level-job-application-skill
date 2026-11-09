@@ -6,7 +6,7 @@
 
 ## 提交前
 
-复用已确认的候选人事实，为当前岗位形成[证据输入](evidence.md)。保存到用户授权的私有目录，不能放在技能仓库内。命令中的 `<skill>`、`<private>` 由助手换成实际已验证路径。
+复用已确认的候选人事实，为当前岗位形成[证据输入](evidence.md)。同一岗位的 JD、填写正文和各用途附件沿用同一标识；附件引用对应提交时的固定版本，不指向会被下一份求职信或简历覆盖的通用文件。保存到用户授权的私有目录，不能放在技能仓库内。命令中的 `<skill>`、`<private>` 由助手换成实际已验证路径。
 
 ```text
 python "<skill>/scripts/check_application.py" --input "<private>/application.json"
