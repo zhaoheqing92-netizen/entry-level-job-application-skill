@@ -90,7 +90,6 @@ python tools/demo.py
 这里的 `python` 指已确认的本地解释器，Windows 可替换为其实际路径，避免商店别名。演示不登录网站、不使用真实简历、不提交申请。
 
 - [测试范围与记录](TESTING.md)
-- [本轮参考的高关注项目与使用反馈](evaluation/competitive-review-2026-11-09.md)
 - [离线演示说明](docs/demo.md)
 - [完整技能说明](skills/entry-level-job-application/SKILL.md)
 - [账号创建与恢复](skills/entry-level-job-application/references/accounts-and-recovery.md)
