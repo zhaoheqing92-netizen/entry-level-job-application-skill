@@ -11,6 +11,8 @@ from urllib.parse import urlsplit
 
 REQUIREMENTS = ("degree", "major", "graduation", "experience", "location", "work_authorization")
 WEIGHTS = {"goals": 30, "experience": 25, "growth": 20, "conditions": 15, "interests": 10}
+LEGACY_SUBMIT_WARNING = ("Saved authorization.submit=true is a previous preference. Tell the user it was found; "
+                         "wait for them to submit or explicitly confirm this application now.")
 
 
 def _object(value):
@@ -204,9 +206,11 @@ def _check_packet(packet, now):
         ids = _list(entry.get("job_ids", []))
         if entry.get("employer") == employer and job_id in ids:
             allowed = True
-    if (authorization.get("submit") is not True or authorization.get("paused") is not False
-            or authorization.get("candidate_ref") != candidate or not allowed):
-        issue("authorization", "Submission needs active authorization for this candidate, employer and job")
+    if authorization.get("submit") is True:
+        warnings.append(LEGACY_SUBMIT_WARNING)
+    if (authorization.get("paused") is not False or authorization.get("candidate_ref") != candidate
+            or not allowed or ("submit" in authorization and type(authorization["submit"]) is not bool)):
+        issue("authorization", "Check the active authorization scope for this candidate, employer and job")
     authorized_refs = _list(authorization.get("attachment_refs", []))
     for attachment in _list(packet.get("attachments", [])):
         attachment = _object(attachment)
@@ -238,6 +242,7 @@ def _check_packet(packet, now):
     score_range = _score(packet.get("fit"))
     return {"valid": True, "ready": not issues,
             "decision": "ineligible" if ineligible else "needs_review" if issues else "eligible",
+            "next_action": "review" if issues else "await_user_submission",
             "issues": issues, "warnings": warnings, "score_range": score_range}
 
 

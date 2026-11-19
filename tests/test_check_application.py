@@ -35,6 +35,7 @@ class SubmissionGuardTests(unittest.TestCase):
         original = copy.deepcopy(self.packet)
         report = self.check()
         self.assertTrue(report["ready"], report)
+        self.assertEqual("await_user_submission", report["next_action"])
         self.assertEqual("eligible", report["decision"])
         self.assertEqual([61, 77], report["score_range"])
         self.assertEqual(original, self.packet)
@@ -157,7 +158,7 @@ class SubmissionGuardTests(unittest.TestCase):
         self.blocked("unsafe_term")
 
     def test_scope_candidate_pause_and_review_are_enforced(self):
-        for change in ({"paused": True}, {"submit": False}, {"candidate_ref": "other"},
+        for change in ({"paused": True}, {"submit": "yes"}, {"candidate_ref": "other"},
                        {"scope": [{"employer": "Example Research", "job_ids": ["OTHER"]}]}):
             with self.subTest(change=change):
                 self.packet = copy.deepcopy(FIXTURE)
@@ -166,6 +167,15 @@ class SubmissionGuardTests(unittest.TestCase):
         self.packet = copy.deepcopy(FIXTURE)
         self.packet["form_reviewed"] = False
         self.blocked("form_review")
+
+    def test_legacy_submit_preference_is_disclosed_and_manual_handoff_remains_available(self):
+        self.packet["authorization"]["submit"] = True
+        report = self.check()
+        self.assertTrue(report["ready"])
+        self.assertTrue(any("authorization.submit" in warning for warning in report["warnings"]))
+        self.assertEqual("await_user_submission", report["next_action"])
+        self.packet["authorization"]["submit"] = False
+        self.assertTrue(self.check()["ready"])
 
     def test_malformed_types_never_pass_or_raise(self):
         for key, value in (("facts", []), ("fields", {}), ("fit", {"goals": True}),

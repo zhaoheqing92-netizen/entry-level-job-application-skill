@@ -45,13 +45,13 @@ header.wrap{display:flex;align-items:center;justify-content:space-between;gap:20
 <aside class="preview" aria-label="搜索话术预览"><div class="preview-title"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h14a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H9l-5 4v-4H3V6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>准备发给 Agent 的消息</div><pre id="search-prompt" class="prompt-text"></pre><div class="preview-actions"><button class="primary" data-copy="search-prompt">复制给 Agent <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="8" y="8" width="12" height="13" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M15 5V3H3v13h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button><small>填好信息，消息会跟着变。</small></div></aside>
 </div>
 <div id="apply" class="workspace" role="tabpanel" aria-labelledby="tab-apply" hidden>
-<div class="entry"><h2>选好岗位，再往前一步。</h2><p class="hint">这里只生成授权话术，不会直接投递。</p>
+<div class="entry"><h2>选好岗位，再往前一步。</h2><p class="hint">在这里选择准备步骤。申请就绪后，Agent 会停下来等你本人提交。需要代交时，请在最后一步逐份明确确认。</p>
 <label class="field">这次申请哪些岗位<input id="scope" maxlength="350" placeholder="公司＋岗位，或写“刚确认的两份岗位”" autocomplete="off"></label>
 <fieldset class="mode"><legend>这次只允许哪一步？</legend><div class="switch">
 <label><input type="radio" name="submit-mode" value="draft" checked><span>仅在本地写草稿</span></label>
 <label><input type="radio" name="submit-mode" value="form"><span>在官网填写草稿</span></label>
 <label><input type="radio" name="submit-mode" value="upload"><span>上传指定附件</span></label>
-<label><input type="radio" name="submit-mode" value="submit"><span>最终提交</span></label>
+<label><input type="radio" name="submit-mode" value="review"><span>核对已填申请</span></label>
 </div></fieldset>
 <div id="upload-field" hidden><label class="field">指定附件<input id="allow-files" maxlength="350" placeholder="要上传的具体文件名或路径" autocomplete="off" disabled></label></div>
 <details class="extra"><summary>本轮数量</summary><label class="field">最多处理<select id="limit"><option value="1">1 份</option><option value="3">3 份</option><option value="5">5 份</option></select></label></details>
@@ -74,8 +74,8 @@ header.wrap{display:flex;align-items:center;justify-content:space-between;gap:20
 <h1>求职小助手<br>一页上手</h1><p>交互版请打开 guide.html：选操作、填方向、复制给 Agent。</p>
 <h2>1. 完整安装</h2><p>完整解压技能安装包。技能文件夹内直接看见 SKILL.md，并保留全部子目录。Codex 用户级目录为 ~/.agents/skills/；Claude Code 为 ~/.claude/skills/。自定义目录按本机设置。</p>
 <h2>2. 核对一个官网岗位</h2><pre>使用 entry-level-job-application。这个官网岗位是【链接】。我【毕业届别、专业】，做过【一项相关经历】。请核对实际工作地和硬性资格，引用一条岗位原文，告诉我该继续、先问哪一项，还是跳过。只核岗位，不注册、不上传、不提交。官网读不到时告诉我，我可以贴出职位说明。</pre>
-<h2>3. 选定岗位后，只授权这一步</h2><p>默认选“仅在本地写草稿”。需要操作官网时，单独选择“在官网填写草稿”“上传指定附件”或“最终提交”，写清岗位和数量。选上传时写明文件，选提交时先确认已填妥的申请。非必填只写真实优势，只勾选提交必需且适用的条款。</p>
-<p>验证码、测评由本人处理；官网确认后才记录成功。需要停下来，直接说“暂停，保存进度”。</p>
+<h2>3. 选定岗位后，只授权这一步</h2><p>默认选“仅在本地写草稿”。需要操作官网时，单独选择“在官网填写草稿”“上传指定附件”或“核对已填申请”。写清岗位、数量和指定文件。准备好后，Agent 停在最后一步，等你本人提交。如果你希望代交，请核对当前这份申请后，当场明确告诉 Agent 可以提交这一份。遇到旧的自动提交设置，Agent 会指出该设置并重新向你确认。</p>
+<p>非必填只写真实优势，只勾选提交必需且适用的条款。验证码、测评由本人处理。官网确认后才记录成功。需要停下来，直接说“暂停，保存进度”。</p>
 <h2>缺工具时</h2><p>先复用已有工具。需要时再看 examples/README.md，按客户端合并配置，不能覆盖原配置。简历和申请记录放在私有文件夹里。</p>
 <small>本页是速查单，配置与示例不代表已在所有客户端或招聘网站实测。教程不执行投递，也不包含模型与其他服务费用。</small>
 </section>
@@ -113,7 +113,7 @@ $('apply-help').textContent={
   draft:'在本地检查草稿，文件保存在你指定的私有目录。',
   form:'官网会收到你确认填写的字段。验证码和测评由本人处理。',
   upload:'先核对文件名和用途。验证码和测评由本人处理。',
-  submit:'验证码和测评由本人处理。看到官网回执，才算提交成功。'
+  review:'请核对当前岗位、表单和附件后自行提交。看到对应的官网回执，才算提交成功。'
 }[mode];
 $('upload-field').hidden=mode!=='upload';
 $('allow-files').disabled=mode!=='upload';
@@ -133,7 +133,7 @@ if(mode==='draft'){
     lines.push(files?'指定文件：'+files+'。先核对文件内容和用途。':'我还没有指定文件，请等我给出具体文件后再操作。');
     lines.push('保留表单现有字段，不提交。');
   }
-  if(mode==='submit')lines.push('只提交我已确认且填妥的申请。字段、附件或条款仍需处理时先停下来问我。只有官网回执确认后，才记录提交成功。');
+  if(mode==='review')lines.push('逐份给我核对公司、岗位、表单、附件和条款。到最后一步就停下，等我本人提交。如需你代交，须逐份等我在提交当场明确确认后再操作。发现旧的自动提交偏好或配置时，先告诉我，并重新向我确认。只有官网回执确认后，才记录提交成功。');
   lines.push('新账号、验证码、测评和未确认的事实交给我。');
 }
 lines.push('进度保存在我指定的私有目录，目录不明确时先问我。我说“暂停”就停止后续动作并保存进度。');

@@ -1,6 +1,6 @@
 # 提交检查和恢复工具
 
-仅在自动提交或需要可靠恢复时读取。用户只提供简历、目标和授权；下面的输入由助手整理，不能要求用户手填 JSON。
+仅在申请准备到最终页面或需要可靠恢复时读取。下面的输入由助手整理，用户无需填写 JSON。
 
 两个 Python 3.10+ 标准库脚本，无第三方依赖，不联网、不控制浏览器、不安装软件、不处理密码。没有运行能力时沿用现有私有记录，不为它们强制安装 Python。
 
@@ -12,7 +12,7 @@
 python "<skill>/scripts/check_application.py" --input "<private>/application.json"
 ```
 
-`ready=true` 只表示结构化检查通过，不证明网页真实、不保证雇主接受资格，也不代表申请成功。开放题仍由助手对照原始材料核查；不能为过检查虚构来源或添加未经实际核对的 `reviewed` 标志。
+`ready=true` 表示材料检查通过，`next_action=await_user_submission`。助手对照原件、当前完整表单和官网申请历史复核后，默认提示“已准备好，等待你本人提交”。发现旧的自动提交偏好或 `authorization.submit=true` 时，向用户说明发现了什么、现在会等待本人提交，代交需就这一份申请当刻重新确认。开放题仍须对照原件核查，不为过检查虚构来源或核验标志。
 
 ## 持久状态
 
@@ -20,19 +20,23 @@ python "<skill>/scripts/check_application.py" --input "<private>/application.jso
 
 ```text
 python "<skill>/scripts/application_state.py" --db "<private>/applications.sqlite" status --input "<private>/application.json"
-python "<skill>/scripts/application_state.py" --db "<private>/applications.sqlite" begin --input "<private>/application.json"
+python "<skill>/scripts/application_state.py" --db "<private>/applications.sqlite" handoff --reason "已准备好，等待本人提交" --input "<private>/application.json"
 ```
 
-`begin` 重跑检查，并以 SQLite 事务检查暂停和重复状态，保存 `submitting`。**只有这一步成功才点击一次网页提交**。点击前后进程中断都先核对官网，再恢复。
+默认交接后停在 `waiting_user`。本人点击后，核对回执并用 `reconcile` 记录真实结果。如果用户希望改由助手提交，先核对本人尚未点击、官网当前页面、账号和材料，把这份申请交回草稿状态（下方 `ready_to_resume`），向用户展示雇主、岗位编号和将发出的材料，并在最终页面取得针对本次代交的明确答复。
+
+仅在取得这次答复后调用 `begin --input "<private>/application.json" --confirm-submit-now "<application-key>"`（沿用上面的脚本和 `--db`）。把 `status` 返回的完整 `key` 字符串作为一个参数传入，保留内含的引号；它匹配候选人、雇主、岗位和批次。只能根据刚收到的用户答复传入该参数，不能从偏好、模板、旧消息或调度配置补入。脚本检查键和本地状态，对话中的授权由宿主核实。每次尝试都重新确认，页面、账号、材料变化或流程中断后也重新确认。
+
+`begin` 重跑检查，并以 SQLite 事务检查暂停和重复状态，保存 `submitting`。**只有这一步成功，才立即代为提交当前申请一次**。点击前后进程中断都先核对官网，再恢复。
 
 | 状态 | 下一步 |
 |---|---|
-| new / draft | 补齐材料，核对当前页面，获授权后 begin |
+| new / draft | 补齐材料，核对当前页面，默认交接本人提交 |
 | waiting_user | 用户处理后重新观察页面，不能凭“继续”解除卡点 |
 | submitting / unknown | 查询官方结果；禁止重点击或再次 begin |
 | submitted | 跳过，不重置为草稿 |
 
-`handoff --reason "不含隐私的卡点"` 记录人工接管；`unknown` 记录结果不明，均带 `--input`。`pause` / `resume` 设置共享暂停标志，后者只在用户恢复授权后调用。暂停仍可核对已经发出的请求；它不是操作系统级终止按钮，助手也须停止浏览器动作与调度。
+`handoff --reason "不含隐私的原因"` 记录人工接管；`unknown` 记录结果不明，均带 `--input`。`pause` / `resume` 设置共享暂停标志，后者只在用户恢复授权后调用。恢复工作后，仍等待本人提交或当刻明确确认本次代交。暂停仍可核对已经发出的请求，助手须停止浏览器动作与调度。
 
 ## 观察回执后恢复
 

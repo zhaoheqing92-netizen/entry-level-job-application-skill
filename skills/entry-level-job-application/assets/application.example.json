@@ -61,7 +61,6 @@
   ],
   "authorization": {
     "candidate_ref": "fictional-candidate-01",
-    "submit": true,
     "paused": false,
     "scope": [{"employer": "Example Research", "job_ids": ["GRAD-TEST-01"]}],
     "attachment_refs": ["synthetic:resume-en-v1"]

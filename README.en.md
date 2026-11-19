@@ -4,7 +4,7 @@
 
 Considering a campus or entry-level role you found on an employer’s website? Give your Agent the posting and two sentences about your background. It will check the work location and eligibility requirements, quote the posting, and tell you whether to proceed, ask a question, or skip the role.
 
-**[Download the free complete bundle](downloads/entry-level-job-application-with-guide.zip)** · [Skill source](skills/entry-level-job-application). The skill instructions, detailed references and interactive guide are currently in Chinese. Unzip the bundle and follow `先看这里.txt` to load the skill into a compatible Agent. Model usage costs are separate. Replace the brackets and send this prompt.
+**[Download the free complete bundle](downloads/entry-level-job-application-with-guide-candidate-20261119.zip)** · [Skill source](skills/entry-level-job-application). The skill instructions, detailed references and interactive guide are currently in Chinese. Unzip the bundle and follow `先看这里.txt` to load the skill into a compatible Agent. Model usage costs are separate. Replace the brackets and send this prompt.
 
 > Use entry-level-job-application. Here is the employer’s posting: [link]. My graduation year is [year], my major is [major], and I’ve [one relevant experience]. Check the actual work location and eligibility requirements. Quote one line from the posting and tell me whether to proceed, ask about a specific condition, or skip it. Only check the role. Do not register, upload, or submit. If you can’t read the page, tell me and I can paste the job description.
 
@@ -37,7 +37,7 @@ On a computer, scan this QR code with the Alipay app on your phone. On a phone, 
 
 ## Optional interactive guide
 
-The [customer bundle](downloads/entry-level-job-application-with-guide.zip) includes `guide.html`, a Chinese tutorial for setup and writing prompts. You can work directly in your Agent or use the guide to compose a request. The guide itself cannot search or apply. Older skill-only ZIPs omit it. If you only want text to review, use “Write a local draft only. Do not visit the application form or upload attachments.”
+The [customer bundle](downloads/entry-level-job-application-with-guide-candidate-20261119.zip) includes `guide.html`, a Chinese tutorial for setup and writing prompts. You can work directly in your Agent or use the guide to compose a request. The guide itself cannot search or apply. Older skill-only ZIPs omit it. If you only want text to review, use “Write a local draft only. Do not visit the application form or upload attachments.”
 
 ## After delivery or installation
 
@@ -53,13 +53,13 @@ To discover new roles, tell the assistant where your resume is, what work you wa
 
 > Use entry-level-job-application. Read my resume at [absolute path to my private resume] and find entry-level data analyst roles in Shanghai or Hangzhou. Compare verified opportunities and prepare drafts only. Do not register, upload, or submit. Ask together for any missing facts that affect the current step.
 
-For automatic applications, explicitly authorize the scope of filling, uploading, and submitting. Necessary account registration follows its own authorization. Confirmed facts and standing permissions are reused; you do not fill out internal JSON or an environment questionnaire.
+Specify which forms the Agent may fill and which files it may upload. At the final step it shows you the employer, role and selected files, then waits for you to submit. If you want the Agent to click for you, explicitly confirm at that moment, for example, “Submit this application for me now.” Each application needs its own confirmation. If the Agent finds a saved auto-submit preference, it identifies that setting and asks for fresh confirmation at the final step. Account registration still requires separate permission.
 
 | Mode | Scope |
 |---|---|
 | Search and compare | Verify and rank opportunities; no registration, uploads, or submission |
 | Prepare | Organize materials and draft within the authorized scope |
-| Apply and submit | Submit within standing authorization, verify the receipt, and continue |
+| Submit | You submit by default. The Agent can submit once after you explicitly confirm the application in front of you, then check the receipt |
 
 ## How it works
 
@@ -85,6 +85,6 @@ python tools/demo.py
 
 On Windows, use the interpreter's actual path if needed to avoid Store aliases. The demo uses fictional data and does not log in or submit applications.
 
-See [test coverage](TESTING.md) and the [offline demo guide](docs/demo.md). Documented configuration branches exist for Codex, Claude Code, DeepSeek Harness, and ZCode; they do not establish universal compatibility. Current evidence is local and simulated: live ATS submissions, every client integration, and marketplace purchase/delivery have not been verified.
+See [test coverage](TESTING.md), the [offline demo guide](docs/demo.md), and the [public project and user-feedback review](evaluation/competitive-review-2026-11-09.md). Documented configuration branches exist for Codex, Claude Code, DeepSeek Harness, and ZCode; they do not establish universal compatibility. Current evidence is local and simulated: live ATS submissions, every client integration, and marketplace purchase/delivery have not been verified.
 
 Keep resumes, credentials, screenshots, and application records outside this public repository.

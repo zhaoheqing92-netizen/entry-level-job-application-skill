@@ -6,7 +6,7 @@
 python scripts/check_application.py --input /private/application.json
 ```
 
-只读取这一个 JSON，不联网、不打开附件、不执行来源文本、不写文件、不提交。退出码 `0` 表示记录中的提交条件齐备，`2` 表示暂不能提交，`1` 表示 JSON 或结构错误。Python 调用 `check_packet(packet, now=None)` 返回 `valid`、`ready`、`decision`（`eligible / ineligible / needs_review`）、`issues`、`score_range`，正常结构另含 `warnings`。`now` 测试时可传带时区的 datetime；真实流程不覆盖当前时间。
+只读取这一个 JSON，不联网、不打开附件、不执行来源文本、不写文件、不提交。退出码 `0` 表示资料检查通过，默认等待本人提交；`2` 表示还有待核事项，`1` 表示 JSON 或结构错误。Python 调用 `check_packet(packet, now=None)` 返回 `valid`、`ready`、`decision`（`eligible / ineligible / needs_review`）、`issues`、`score_range`，正常结构另含 `warnings` 和 `next_action`（`review / await_user_submission`）。`now` 测试时可传带时区的 datetime；真实流程不覆盖当前时间。
 
 ## 由 Agent 维护的紧凑数据包
 
@@ -22,7 +22,7 @@ python scripts/check_application.py --input /private/application.json
 | `fields` | 实际表单字段数组：`name, required`。事实字段用 `value, fact_id`；开放题用 `text, fact_ids, reviewed: true, employer, job_id` |
 | `attachments` | 实际附件槽数组：`required, ref, authorized, role, language, expected_role, expected_language`。`ref` 是批准文件的引用；未选附件省略它。批准引用列入授权的 `attachment_refs` |
 | `terms` | 实际声明数组：`id, required, selected`；选中时必须 `authorized: true, applicable: true`。可选营销或人才库即使勾选获得授权，本技能仍不选 |
-| `authorization` | `candidate_ref, submit: true, paused: false, scope: [{employer, job_ids: [...]}], attachment_refs: [...]`；这是已有授权的记录，不要求用户再次确认 |
+| `authorization` | `candidate_ref, paused: false, scope: [{employer, job_ids: [...]}], attachment_refs: [...]` 记录获准处理的候选人、岗位和附件。新数据包省略 `submit`。发现旧 `submit: true`，须告知用户发现了此设置，并说明代交需当刻重新确认；旧 `submit: false` 仍禁止代交。 |
 | `form_reviewed` | Agent 对当前页面、全部必填项、附件槽及声明核对完毕后才设 `true`；空数组只适用于页面确实无此类项 |
 | `fit`（可省略） | `goals, experience, growth, conditions, interests`，各为 `0..5`、`[下界,上界]` 或 `null`；未知维度贡献完整可能区间，不随意补中间分 |
 

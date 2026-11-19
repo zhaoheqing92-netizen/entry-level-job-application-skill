@@ -7,7 +7,7 @@ from pathlib import Path
 import sqlite3
 import sys
 
-from check_application import check_packet
+from check_application import LEGACY_SUBMIT_WARNING, check_packet
 
 
 class StateError(ValueError):
@@ -90,13 +90,19 @@ class Ledger:
             (key, status, started_at, now.isoformat(), note, evidence_ref),
         )
 
-    def begin(self, packet, now=None):
+    def begin(self, packet, now=None, *, confirmed_application=None):
         """Persist BEFORE clicking submit. A crash keeps the retry blocked."""
         now = now or utc_now()
         report = check_packet(packet, now=now)
+        if confirmed_application is None and LEGACY_SUBMIT_WARNING in report.get("warnings", []):
+            raise StateError(LEGACY_SUBMIT_WARNING)
         if report.get("ready") is not True:
             raise StateError("Submission checks did not pass; run check_application for details")
         key = identity(packet)
+        if packet["authorization"].get("submit") is False:
+            raise StateError("Delegated submission is disabled for this application")
+        if confirmed_application != key:
+            raise StateError("Wait for the user to submit or explicitly confirm this exact application now")
         with self.db:
             self.db.execute("BEGIN IMMEDIATE")
             if self._paused():
@@ -178,6 +184,8 @@ def main():
     parser.add_argument("--input", help="Private application packet JSON")
     parser.add_argument("--evidence", help="Private observation JSON, required for reconcile")
     parser.add_argument("--reason", default="")
+    parser.add_argument("--confirm-submit-now", metavar="APPLICATION_KEY",
+                        help="For begin only, after the user explicitly confirms this application at final review")
     args = parser.parse_args()
     ledger = None
     try:
@@ -185,6 +193,8 @@ def main():
             parser.error("--input is required for this action")
         if args.action == "reconcile" and not args.evidence:
             parser.error("--evidence is required for reconcile")
+        if args.confirm_submit_now is not None and args.action != "begin":
+            parser.error("--confirm-submit-now applies only to begin")
         packet = json.loads(Path(args.input).read_text(encoding="utf-8-sig")) if args.input else None
         ledger = Ledger(args.db)
         if args.action in {"pause", "resume"}:
@@ -194,6 +204,8 @@ def main():
             result = ledger.reconcile(packet, evidence)
         elif args.action == "handoff":
             result = ledger.handoff(packet, args.reason)
+        elif args.action == "begin":
+            result = ledger.begin(packet, confirmed_application=args.confirm_submit_now)
         else:
             result = getattr(ledger, "get" if args.action == "status" else args.action)(packet)
         print(json.dumps(result, ensure_ascii=False))

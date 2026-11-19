@@ -11,7 +11,7 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "skills/entry-level-job-application/scripts"))
 from check_application import check_packet
-from application_state import Ledger, StateError
+from application_state import Ledger, StateError, identity
 
 
 def run_demo():
@@ -61,18 +61,23 @@ def run_demo():
                 actual = "blocked"
             workflow.append({"name": label, "expected": expected, "actual": actual, "passed": expected == actual})
         try:
+            key = identity(base)
+            expect("未获当刻确认，等待本人提交", "blocked", lambda: ledger.begin(base, now))
             ledger.handoff(base, "虚构页面等待本人验证", now)
-            expect("本人验证未完成时阻止提交", "blocked", lambda: ledger.begin(base, now))
+            expect("本人验证未完成时阻止提交", "blocked", lambda: ledger.begin(base, now, confirmed_application=key))
             e = {"candidate_ref": base["candidate_ref"], "job": base["job"],
                  "observed_at": (now + timedelta(minutes=1)).isoformat(), "reference": "synthetic:observation-1",
                  "kind": "live_form", "status": "ready_to_resume", "blocker_resolved": True}
             ledger.reconcile(base, e, now + timedelta(minutes=2))
-            expect("核对已解决卡点后开始一次提交", "accepted", lambda: ledger.begin(base, now + timedelta(minutes=3)))
+            expect("核对表单并模拟用户当刻确认后开始一次提交", "accepted",
+                   lambda: ledger.begin(base, now + timedelta(minutes=3), confirmed_application=key))
             ledger.unknown(base, now + timedelta(minutes=4))
-            expect("超时结果不明时阻止重复提交", "blocked", lambda: ledger.begin(base, now + timedelta(minutes=5)))
+            expect("超时结果不明时阻止重复提交", "blocked",
+                   lambda: ledger.begin(base, now + timedelta(minutes=5), confirmed_application=key))
             e.update(kind="application_record", status="submitted", observed_at=(now + timedelta(minutes=6)).isoformat())
             ledger.reconcile(base, e, now + timedelta(minutes=7))
-            expect("已确认提交后继续阻止重复", "blocked", lambda: ledger.begin(base, now + timedelta(minutes=8)))
+            expect("已确认提交后继续阻止重复", "blocked",
+                   lambda: ledger.begin(base, now + timedelta(minutes=8), confirmed_application=key))
             final = ledger.get(base)["status"]
         finally:
             ledger.close()
@@ -91,10 +96,10 @@ def render(report):
             "<title>初级岗位求职助手 · 离线演示</title><style>body{max-width:880px;margin:48px auto;padding:0 24px;font:17px/1.7 system-ui;color:#17283a;background:#f8fafc}"
             "table{width:100%;border-collapse:collapse;background:white}th,td{padding:12px;text-align:left;border-bottom:1px solid #d6dee7}"
             "aside{padding:16px;background:#e8eff9;border-radius:8px}code{overflow-wrap:anywhere}</style>"
-            "<h1>初级岗位自动求职助手</h1><p>用户给简历和目标，助手核实官网岗位、准备材料，在授权范围内申请。</p>"
+            "<h1>初级岗位自动求职助手</h1><p>助手核实官网岗位、准备材料，默认在最终页面等待本人提交。用户当刻明确确认后才可代交当前申请。</p>"
             "<aside><strong>这是离线虚构演示。</strong>没有真实招聘网站提交，没有支付交易，也不代表已获得面试或录用。</aside>"
             "<h2>本次实际运行的检查</h2><table><thead><tr><th>场景</th><th>结果</th></tr></thead><tbody>" + "".join(rows) + "</tbody></table>"
-            "<h2>模拟恢复过程</h2><p>等待本人验证 → 核对页面 → 提交中 → 结果未知 → 查询模拟回执 → 已提交；重复 begin 被阻止。</p>"
+            "<h2>模拟恢复过程</h2><p>等待本人验证 → 核对页面 → 模拟当刻确认 → 提交中 → 结果未知 → 查询模拟回执 → 已提交；重复 begin 被阻止。</p>"
             "<p>工具只检查输入一致性；来源真假、语义与网站操作仍由 Agent 核验。真实客户端、ATS 和支付需分别验收。</p>"
             "<p>生成时间：<code>" + html.escape(report["generated_at"]) + "</code></p></html>")
 
