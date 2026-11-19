@@ -2,14 +2,30 @@
 
 [中文](README.md)
 
-An Agent skill that turns a resume, career goals, and a clear authorization scope into verified job opportunities and official applications. It supports search, draft preparation, authorized submission, and recovery after interruptions. It is not a standalone bot or a hiring guarantee.
+Considering a campus or entry-level role you found on an employer’s website? Give your Agent the posting and two sentences about your background. It will check the work location and eligibility requirements, quote the posting, and tell you whether to proceed, ask a question, or skip the role.
 
-[Download the customer bundle](downloads/entry-level-job-application-with-guide.zip) for the skill plus a Chinese guide. Install the skill and tell your Agent what you need. The optional `guide.html` explains setup and helps compose prompts; it does not search or apply, and you can skip it. Older skill-only ZIPs do not include the guide. Marketplace delivery files must be replaced separately.
+**[Download the free complete bundle](downloads/entry-level-job-application-with-guide.zip)** · [Skill source](skills/entry-level-job-application). The skill instructions, detailed references and interactive guide are currently in Chinese. Unzip the bundle and follow `先看这里.txt` to load the skill into a compatible Agent. Model usage costs are separate. Replace the brackets and send this prompt.
 
-## Get the skill or support the author
+> Use entry-level-job-application. Here is the employer’s posting: [link]. My graduation year is [year], my major is [major], and I’ve [one relevant experience]. Check the actual work location and eligibility requirements. Quote one line from the posting and tell me whether to proceed, ask about a specific condition, or skip it. Only check the role. Do not register, upload, or submit. If you can’t read the page, tell me and I can paste the job description.
 
-- **Free:** [skill source](skills/entry-level-job-application) · [complete bundle with Chinese guide](downloads/entry-level-job-application-with-guide.zip)
-- **Support the author:** One-time price: CNY 19.9; the product page controls the current price.
+<details>
+<summary>Original Chinese prompt</summary>
+
+> 使用 entry-level-job-application。这个官网岗位是【链接】。我【毕业届别、专业】，做过【一项相关经历】。请核对实际工作地和硬性资格，引用一条岗位原文，告诉我该继续、先问哪一项，还是跳过。只核岗位，不注册、不上传、不提交。官网读不到时告诉我，我可以贴出职位说明。
+
+</details>
+
+## What the result looks like
+
+In the fictional offline example, a 2025 engineering graduate has experience organizing heat-transfer test data. Alpha Thermal’s assistant test engineer role is worth pursuing, with one question for the employer about eligibility for 2025 graduates. Skip Beta Mobility’s thermal R&D role. It requires a master’s degree or higher and a 2027 graduation date.
+
+<img src="docs/job-check-comparison.png" width="360" alt="Fictional offline comparison in Chinese. Keep Alpha for its test-data work. Skip Beta because the candidate misses both its graduation year and degree requirements.">
+
+[Read the text version with the job excerpts and candidate introduction (Chinese)](docs/job-check-comparison.md)
+
+## Support the author
+
+The optional one-time payment is CNY 19.9. Check the product page for the current price. Both channels provide the same skill, Chinese guide and configuration examples. A purchase supports the author and provides the packaged files through SkillPay. It includes no human application service or hiring guarantee and grants no permission to access personal data or submit applications.
 
 **Scan with Alipay to view the product and purchase**
 
@@ -19,7 +35,9 @@ On a computer, scan this QR code with the Alipay app on your phone. On a phone, 
 
 [Product share link — open inside Alipay](https://render.alipay.com/p/yuyan/180020010001298808/product.html?caprMode=sync&merchantId=2088822673721480&productId=P0806000212843919). A desktop browser may only show an instruction to scan with Alipay.
 
-Both channels provide the same skill. The Chinese guide and configuration examples are also publicly available for free. Purchasing supports the author and provides the packaged files through the platform; there are no paid-only features. Bring a compatible Agent; model costs are separate. Human application services and hiring guarantees are not included.
+## Optional interactive guide
+
+The [customer bundle](downloads/entry-level-job-application-with-guide.zip) includes `guide.html`, a Chinese tutorial for setup and writing prompts. You can work directly in your Agent or use the guide to compose a request. The guide itself cannot search or apply. Older skill-only ZIPs omit it. If you only want text to review, use “Write a local draft only. Do not visit the application form or upload attachments.”
 
 ## After delivery or installation
 
@@ -29,9 +47,9 @@ If your Agent only downloads the files, say: “After delivery, load entry-level
 
 ## Get started
 
-Copy the complete [skills/entry-level-job-application](skills/entry-level-job-application) folder into your Agent's skill directory, including its references, scripts, assets, and metadata. See the [client guide](skills/entry-level-job-application/references/clients.md) for documented host-specific paths and invocation syntax. The operational skill and detailed references are currently in Chinese.
+Copy the complete [skills/entry-level-job-application](skills/entry-level-job-application) folder into your Agent's skill directory, including its references, scripts, assets, and metadata. See the [client guide](skills/entry-level-job-application/references/clients.md) for documented host-specific paths and invocation syntax.
 
-Tell the assistant where your resume is, what work you want, and what it may do:
+To discover new roles, tell the assistant where your resume is, what work you want, and what it may do.
 
 > Use entry-level-job-application. Read my resume at [absolute path to my private resume] and find entry-level data analyst roles in Shanghai or Hangzhou. Compare verified opportunities and prepare drafts only. Do not register, upload, or submit. Ask together for any missing facts that affect the current step.
 
@@ -69,4 +87,4 @@ On Windows, use the interpreter's actual path if needed to avoid Store aliases. 
 
 See [test coverage](TESTING.md), the [offline demo guide](docs/demo.md), and the [public project and user-feedback review](evaluation/competitive-review-2026-11-09.md). Documented configuration branches exist for Codex, Claude Code, DeepSeek Harness, and ZCode; they do not establish universal compatibility. Current evidence is local and simulated: live ATS submissions, every client integration, and marketplace purchase/delivery have not been verified.
 
-Keep resumes, credentials, screenshots, and application records outside this public repository. Buying the skill does not grant permission to access personal data or submit applications.
+Keep resumes, credentials, screenshots, and application records outside this public repository.

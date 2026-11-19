@@ -35,5 +35,6 @@ dist/
 .pytest_cache/
 
 # Public tutorial assets contain no personal information.
+!docs/job-check-comparison.png
 !docs/starter-kit/guide.pdf
 !docs/starter-kit/preview.png
